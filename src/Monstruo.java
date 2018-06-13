@@ -38,13 +38,6 @@ public class Monstruo implements Carta{
 
     }
 
-
-    void atacar(Monstruo m2) {
-
-        this.posicion.atacar(m2);
-
-    }
-
     int obtenerAtaque() {
 
         return this.danio;
