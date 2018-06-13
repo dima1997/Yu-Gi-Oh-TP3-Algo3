@@ -19,7 +19,7 @@ public class AreaDeCombateTest extends TestCase {
 
 	}
 	
-	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMenorAtaqueDevuelveLosDaniosCorrectos(){
+	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMenorAtaqueDevuelveDanioAtacanteCeroYDanioDefensorDisntoDeCero(){
 		
 		Jugador atacante = new Jugador(10);
 		Jugador defensor = new Jugador(10);
@@ -54,7 +54,7 @@ public class AreaDeCombateTest extends TestCase {
 
 	}
 
-	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMayorAtaqueDevuelveLosDaniosCorrectos(){
+	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMayorAtaqueDevuelveDanioAtacanteDistintoDeCeroYDanioDefensorCeros(){
 
 		Jugador atacante = new Jugador(10);
 		Jugador defensor = new Jugador(10);
@@ -67,8 +67,8 @@ public class AreaDeCombateTest extends TestCase {
 
 		a.combatir(atacante, agresivo, defensor, defensivo);
 
-		assertEquals(a.danioAtacante(), 10);
-		assertEquals(a.danioDefensor(), 0);
+		assertEquals(a.danioAtacante(), 0);
+		assertEquals(a.danioDefensor(), 10);
 
 	}
 
@@ -86,11 +86,11 @@ public class AreaDeCombateTest extends TestCase {
 		a.combatir(atacante, agresivo, defensor, defensivo);
 
 		assertTrue(a.cartasADestruir().contains(agresivo));
-		assertTrue(a.cartasADestruir().contains(defensor));
+		assertTrue(a.cartasADestruir().contains(defensivo));
 
 	}
 
-	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConIgualAtaqueNoGeneraDanioAJugadores(){
+	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConIgualAtaqueGeneraDanioAtacanteYDefensorCero(){
 
 		Jugador atacante = new Jugador(10);
 		Jugador defensor = new Jugador(10);

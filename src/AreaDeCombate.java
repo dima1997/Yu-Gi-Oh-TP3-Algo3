@@ -21,8 +21,17 @@ class AreaDeCombate {
         this.danioDefensor = monstruoAtacante.danioContra(monstruoAtacado);
         this.danioAtacante = monstruoAtacado.danioContra(monstruoAtacante);
 
+        if (monstruoAtacado.esDestruidoPor(monstruoAtacante)){
+            this.cartasADestruir.add(monstruoAtacado);
+        }
+
+        if (monstruoAtacante.esDestruidoPor(monstruoAtacado)){
+            this.cartasADestruir.add(monstruoAtacante);
+        }
+        /*
         this.destruirSiElDanioEsCero(danioDefensor, monstruoAtacado);
         this.destruirSiElDanioEsCero(danioAtacante, monstruoAtacante);
+        */
 
     }
 
