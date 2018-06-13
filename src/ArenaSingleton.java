@@ -70,7 +70,7 @@ class ArenaSingleton {
         jugadorDefensor.recibirAtaque(puntosRestarDefensor);
     }
 
-    public void destruirTodas() {
+    void destruirTodas() {
         for (Carta unaCarta: this.cartasMonstruo) {
             this.enviarAlCementerio(unaCarta);
         }
@@ -81,7 +81,7 @@ class ArenaSingleton {
         this.cartasTrampaMagica.clear();
     }
 
-    public void sacrificar(int numeroDeSacrificios) {
+    void sacrificar(int numeroDeSacrificios) {
          int i = numeroDeSacrificios;
          while (i>0) {
             Monstruo monstruoASacrificar = cartasMonstruo.remove(0);
@@ -90,7 +90,7 @@ class ArenaSingleton {
         }
     }
 
-    public void colocarMonstruo(Monstruo unMonstruo) {
+    void colocarMonstruo(Monstruo unMonstruo) {
 
          unMonstruo.sacrificar();
          this.cartasMonstruo.add(unMonstruo);
