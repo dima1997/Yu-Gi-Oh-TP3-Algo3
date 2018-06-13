@@ -1,9 +1,15 @@
 public class Monstruo {
 
     private Posicion posicion;
+    private int danio;
+    private int defensa;
+    private int estrellas;
 
-    Monstruo(){
+    Monstruo(int danio, int defensa, int estrellas){
 
+        this.danio = danio;
+        this.defensa = defensa;
+        this.estrellas = estrellas;
         this.posicion = new Dormido();
 
     }
