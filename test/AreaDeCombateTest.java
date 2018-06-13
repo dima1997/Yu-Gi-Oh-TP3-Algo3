@@ -11,9 +11,9 @@ public class AreaDeCombateTest extends TestCase {
 		agresivo.colocarEnPosAtaque();
 		defensivo.colocarEnPosAtaque();
 		
-		AreaDeCombate a = new AreaDeCombate();
+		AreaDeCombate a = new AreaDeCombate(atacante, agresivo, defensor, defensivo);
 		
-		a.combatir(atacante, agresivo, defensor, defensivo);
+		a.combatir();
 		
 		assertTrue(a.cartasADestruir().contains(defensivo));
 
@@ -27,10 +27,10 @@ public class AreaDeCombateTest extends TestCase {
 		Monstruo defensivo = new Monstruo(10,10,1);
 		agresivo.colocarEnPosAtaque();
 		defensivo.colocarEnPosAtaque();
-		
-		AreaDeCombate a = new AreaDeCombate();
-		
-		a.combatir(atacante, agresivo, defensor, defensivo);
+
+		AreaDeCombate a = new AreaDeCombate(atacante, agresivo, defensor, defensivo);
+
+		a.combatir();
 		
 		assertEquals(a.danioAtacante(), 0);
 		assertEquals(a.danioDefensor(), 10);
@@ -46,9 +46,9 @@ public class AreaDeCombateTest extends TestCase {
 		agresivo.colocarEnPosAtaque();
 		defensivo.colocarEnPosAtaque();
 
-		AreaDeCombate a = new AreaDeCombate();
+		AreaDeCombate a = new AreaDeCombate(atacante, agresivo, defensor, defensivo);
 
-		a.combatir(atacante, agresivo, defensor, defensivo);
+		a.combatir();
 
 		assertTrue(a.cartasADestruir().contains(agresivo));
 
@@ -63,9 +63,9 @@ public class AreaDeCombateTest extends TestCase {
 		agresivo.colocarEnPosAtaque();
 		defensivo.colocarEnPosAtaque();
 
-		AreaDeCombate a = new AreaDeCombate();
+		AreaDeCombate a = new AreaDeCombate(atacante, agresivo, defensor, defensivo);
 
-		a.combatir(atacante, agresivo, defensor, defensivo);
+		a.combatir();
 
 		assertEquals(a.danioAtacante(), 0);
 		assertEquals(a.danioDefensor(), 10);
@@ -81,9 +81,9 @@ public class AreaDeCombateTest extends TestCase {
 		agresivo.colocarEnPosAtaque();
 		defensivo.colocarEnPosAtaque();
 
-		AreaDeCombate a = new AreaDeCombate();
+		AreaDeCombate a = new AreaDeCombate(atacante, agresivo, defensor, defensivo);
 
-		a.combatir(atacante, agresivo, defensor, defensivo);
+		a.combatir();
 
 		assertTrue(a.cartasADestruir().contains(agresivo));
 		assertTrue(a.cartasADestruir().contains(defensivo));
@@ -99,9 +99,9 @@ public class AreaDeCombateTest extends TestCase {
 		agresivo.colocarEnPosAtaque();
 		defensivo.colocarEnPosAtaque();
 
-		AreaDeCombate a = new AreaDeCombate();
+		AreaDeCombate a = new AreaDeCombate(atacante, agresivo, defensor, defensivo);
 
-		a.combatir(atacante, agresivo, defensor, defensivo);
+		a.combatir();
 
 		assertEquals(a.danioAtacante(), 0);
 		assertEquals(a.danioDefensor(), 0);

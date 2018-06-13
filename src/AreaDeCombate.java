@@ -5,45 +5,30 @@ import static java.lang.Math.abs;
 class AreaDeCombate {
 
     private LinkedList <Monstruo> cartasADestruir;
-    private int danioAtacante = 0;
-    private int danioDefensor = 0;
+    private Monstruo monstruoAtacado;
+    private Monstruo monstruoAtacante;
 
-    AreaDeCombate (){
+    AreaDeCombate (Jugador atacante, Monstruo monstruoAtacante, Jugador atacado, Monstruo monstruoAtacado){
 
-        this.danioDefensor = 0;
-        this.danioAtacante = 0;
+        this.monstruoAtacado = monstruoAtacado;
+        this.monstruoAtacante = monstruoAtacante;
         this.cartasADestruir = new LinkedList<Monstruo>();
 
     }
 
-    void combatir(Jugador atacante, Monstruo monstruoAtacante, Jugador atacado, Monstruo monstruoAtacado){
-        
-        this.danioDefensor = monstruoAtacante.danioContra(monstruoAtacado);
-        this.danioAtacante = monstruoAtacado.danioContra(monstruoAtacante);
+    void combatir(){
 
-        if (monstruoAtacado.esDestruidoPor(monstruoAtacante)){
-            this.cartasADestruir.add(monstruoAtacado);
+
+        if (this.monstruoAtacado.esDestruidoPor(this.monstruoAtacante)){
+            this.cartasADestruir.add(this.monstruoAtacado);
         }
 
-        if (monstruoAtacante.esDestruidoPor(monstruoAtacado)){
-            this.cartasADestruir.add(monstruoAtacante);
-        }
-        /*
-        this.destruirSiElDanioEsCero(danioDefensor, monstruoAtacado);
-        this.destruirSiElDanioEsCero(danioAtacante, monstruoAtacante);
-        */
-
-    }
-
-    private void destruirSiElDanioEsCero(int danio, Monstruo m){
-
-        if (danio == 0) {
-
-            this.cartasADestruir.add(m);
-
+        if (this.monstruoAtacante.esDestruidoPor(this.monstruoAtacado)){
+            this.cartasADestruir.add(this.monstruoAtacante);
         }
 
     }
+
 
     LinkedList cartasADestruir(){
 
@@ -53,13 +38,12 @@ class AreaDeCombate {
 
     int danioAtacante(){
 
-        return this.danioAtacante;
-
+        return this.monstruoAtacado.danioContra(this.monstruoAtacante);
     }
 
     int danioDefensor(){
 
-        return this.danioDefensor;
+        return this.monstruoAtacante.danioContra(this.monstruoAtacado);
     }
 
 
