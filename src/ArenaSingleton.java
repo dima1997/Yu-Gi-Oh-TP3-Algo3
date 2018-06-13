@@ -4,11 +4,13 @@ import java.util.LinkedList;
 class ArenaSingleton {
     private static ArenaSingleton INSTANCE = null;
 
-    private ArrayList<Carta> cartas;
+    private ArrayList<Monstruo> cartasMonstruo;
+    private ArrayList<Carta> cartasTrampaMagica;
     private ArrayList<Carta> cementerio;
 
      private ArenaSingleton(){
-        this.cartas = new ArrayList<Carta>();
+        this.cartasMonstruo = new ArrayList<Monstruo>();
+        this.cartasTrampaMagica = new ArrayList<Carta>();
         this.cementerio = new ArrayList<Carta>();
     }
 
@@ -24,15 +26,15 @@ class ArenaSingleton {
     }
 
 
-    void colocarCarta(Carta unaCarta) {
+    void colocarTrampaMagica(Carta unaCarta) {
 
-        this.cartas.add(unaCarta);
+        this.cartasTrampaMagica.add(unaCarta);
 
     }
 
     boolean contiene(Carta unaCarta) {
 
-        return this.cartas.contains(unaCarta);
+        return (this.cartasMonstruo.contains(unaCarta) || this.cartasTrampaMagica.contains(unaCarta));
 
     }
 
@@ -57,7 +59,7 @@ class ArenaSingleton {
 
         for (int i = 0; i < cartasADestruir.size(); i++) {
         	Carta unaCarta = cartasADestruir.get(i);
-        	this.cartas.remove(unaCarta);
+        	this.cartasMonstruo.remove(unaCarta);
         	this.enviarAlCementerio(unaCarta);
         }
 
@@ -69,9 +71,29 @@ class ArenaSingleton {
     }
 
     public void destruirTodas() {
-        for (Carta unaCarta: this.cartas) {
+        for (Carta unaCarta: this.cartasMonstruo) {
             this.enviarAlCementerio(unaCarta);
         }
-        this.cartas.clear();
+        for (Carta unaCarta: this.cartasTrampaMagica) {
+            this.enviarAlCementerio(unaCarta);
+        }
+        this.cartasMonstruo.clear();
+        this.cartasTrampaMagica.clear();
+    }
+
+    public void sacrificar(int numeroDeSacrificios) {
+         int i = numeroDeSacrificios;
+         while (i>0) {
+            Monstruo monstruoASacrificar = cartasMonstruo.remove(0);
+            this.enviarAlCementerio(monstruoASacrificar);
+            i--;
+        }
+    }
+
+    public void colocarMonstruo(Monstruo unMonstruo) {
+
+         unMonstruo.sacrificar();
+         this.cartasMonstruo.add(unMonstruo);
+
     }
 }

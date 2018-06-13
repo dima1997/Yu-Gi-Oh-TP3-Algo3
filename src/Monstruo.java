@@ -65,4 +65,13 @@ public class Monstruo implements Carta{
     }
 
 
+    public void sacrificar() {
+        ArenaSingleton arena = ArenaSingleton.getInstance();
+        if (this.estrellas == 5 || this.estrellas == 6) {
+            arena.sacrificar(1);
+        }
+        else if (this.estrellas > 6){
+            arena.sacrificar(2);
+        }
+    }
 }

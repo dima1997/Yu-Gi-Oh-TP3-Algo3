@@ -20,9 +20,11 @@ public class Magica implements Carta {
 
         ArenaSingleton arena = ArenaSingleton.getInstance();
 
-        arena.enviarAlCementario(this);
+        arena.enviarAlCementerio(this);
 
     }
 
 
+    public void sacrificar() {
+    }
 }
