@@ -8,12 +8,6 @@ public class PosDefensa implements Posicion {
 
     }
 
-    public void atacar(Monstruo m){
-
-        throw new MonstruoNoPuedeAtacarError();
-
-    }
-
     public int obtenerAtaque(){
 
         return 0;

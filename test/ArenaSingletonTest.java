@@ -5,9 +5,7 @@ public class ArenaSingletonTest extends TestCase {
     public void testArenaContieneEsTrueCuandoLaCartaRecibaFueColocadaEnLaArena() {
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
 
-        Efecto efecto = new EfectoAgujeroNegro();
-
-        Carta unaCarta = new Magica(efecto);
+        Carta unaCarta = new Magica(new EfectoNulo());
 
         unaArena.colocarCarta(unaCarta);
 

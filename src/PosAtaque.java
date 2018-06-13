@@ -2,9 +2,6 @@ public class PosAtaque implements Posicion {
 
     private final Monstruo miMonstruo;
 
-    public void atacar(Monstruo m){
-    }
-
     PosAtaque(Monstruo miMonstruo){
 
         this.miMonstruo = miMonstruo;
@@ -25,7 +22,7 @@ public class PosAtaque implements Posicion {
 
     public int recibirAtaque(Posicion otraPosicion){
         int suAtaque = otraPosicion.obtenerAtaque();
-        int miDefensa = this.obtenerAtaque();
+        int miDefensa = this.obtenerDefensa();
 
         if (miDefensa > suAtaque){
             return 0;
