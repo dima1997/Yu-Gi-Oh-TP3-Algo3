@@ -35,9 +35,9 @@ class Arena {
     }
 
     void hacerCombatir(Jugador jugadorAtacante, Monstruo monstruoAtacante, Jugador jugadorDefensor, Monstruo monstruoDefensor) {
-        AreaDeCombate unCombate = new AreaDeCombate();
+        AreaDeCombate unCombate = new AreaDeCombate(jugadorAtacante, monstruoAtacante, jugadorDefensor, monstruoDefensor);
 
-        unCombate.combatir(jugadorAtacante, monstruoAtacante, jugadorDefensor, monstruoDefensor);
+        unCombate.combatir();
 
         LinkedList<Carta> cartasADestruir = unCombate.cartasADestruir();
 
