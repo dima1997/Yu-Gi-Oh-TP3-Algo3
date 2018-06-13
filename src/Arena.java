@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Arena {
+class Arena {
     private ArrayList<Carta> cartas;
     private Cementario cementerio;
 
@@ -9,18 +9,22 @@ public class Arena {
         this.cementerio = new Cementario();
     }
 
-    public void colocarCarta(Carta unaCarta) {
+    void colocarCarta(Carta unaCarta) {
+
         this.cartas.add(unaCarta);
+
     }
 
-    public boolean contiene(Carta unaCarta) {
+    boolean contiene(Carta unaCarta) {
+
         return this.cartas.contains(unaCarta);
+
     }
 
 
-    public void hacerCombatir(Monstruo monstruoAtacante, Jugador jugadorAtacante, Monstruo monstruoDefensor, Jugador jugadorDefensor) {
+    void hacerCombatir(Monstruo monstruoAtacante, Jugador jugadorAtacante, Monstruo monstruoDefensor, Jugador jugadorDefensor) {
         AreaDeCombate unCombate = new AreaDeCombate();
-        unCombate.hacerCombatir(monstruoAtacante, jugadorAtacante, monstruoDefensor, jugadorDefensor);
+        unCombate.hacerCombatir(jugadorAtacante, monstruoAtacante,jugadorDefensor, monstruoDefensor);
         ArrayList<Carta> cartasADestruir = unCombate.cartasADestruir();
         for (int i = 0; i < cartasADestruir.size(); i++) {
         	Carta unaCarta = cartasADestruir.get(i);
@@ -33,7 +37,9 @@ public class Arena {
         jugadorDefensor.recibirAtaque(puntosRestarDefensor);
     }
 
-    public boolean estaEnElCementerio(Monstruo unMonstruo) {
+    boolean estaEnElCementerio(Monstruo unMonstruo) {
+
         return this.cementerio.estaDestruida(unMonstruo);
+
     }
 }
