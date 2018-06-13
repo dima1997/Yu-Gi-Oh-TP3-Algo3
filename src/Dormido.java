@@ -6,4 +6,16 @@ public class Dormido implements Posicion {
 
     }
 
+    public int obtenerAtaque(){
+        return 0;
+    }
+
+    public int obtenerDefensa(){
+        return 0;
+    }
+
+    public int recibirAtaque(Posicion otraPosicion){
+        return 0;
+    }
+
 }
