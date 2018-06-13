@@ -18,7 +18,6 @@ class AreaDeCombate {
 
     void combatir(){
 
-
         if (this.monstruoAtacado.esDestruidoPor(this.monstruoAtacante)){
             this.cartasADestruir.add(this.monstruoAtacado);
         }

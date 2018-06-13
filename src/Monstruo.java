@@ -48,18 +48,8 @@ public class Monstruo implements Carta{
     int danioContra(Monstruo m){
         Posicion miPosicion = this.posicion;
         Posicion suPosicion = m.posicion;
+
         return suPosicion.recibirAtaque(miPosicion);
-
-        /*
-        int miAtaque = this.posicion.obtenerAtaque();
-        int suDefensa = m.posicion.obtenerDefensa();
-
-        if (suDefensa > miAtaque){
-            return 0;
-        }
-
-        return miAtaque - suDefensa;
-        */
     }
 
     boolean esDestruidoPor(Monstruo m){

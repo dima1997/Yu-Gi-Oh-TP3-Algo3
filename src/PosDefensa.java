@@ -2,15 +2,15 @@ public class PosDefensa implements Posicion {
 
     private final Monstruo miMonstruo;
 
-    public void atacar(Monstruo m){
-
-        throw new MonstruoNoPuedeAtacarError();
-
-    }
-
     PosDefensa(Monstruo miMonstruo){
 
         this.miMonstruo = miMonstruo;
+
+    }
+
+    public void atacar(Monstruo m){
+
+        throw new MonstruoNoPuedeAtacarError();
 
     }
 

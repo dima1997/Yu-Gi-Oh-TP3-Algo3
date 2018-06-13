@@ -6,7 +6,9 @@ public class PosAtaque implements Posicion {
     }
 
     PosAtaque(Monstruo miMonstruo){
+
         this.miMonstruo = miMonstruo;
+
     }
 
     public int obtenerAtaque(){

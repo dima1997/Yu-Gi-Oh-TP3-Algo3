@@ -108,6 +108,38 @@ public class AreaDeCombateTest extends TestCase {
 
 	}
 
+	public void testCombateEntreMonsEnDefensaYMonsEnAtaqueDanioDefensorEsCero(){
 
+		Jugador atacante = new Jugador("",10);
+		Jugador defensor = new Jugador("",10);
+		Monstruo agresivo = new Monstruo(100,10,1);
+		Monstruo defensivo = new Monstruo(10,10,1);
+		agresivo.colocarEnPosAtaque();
+		defensivo.colocarEnPosDefensa();
+
+		AreaDeCombate a = new AreaDeCombate(atacante, agresivo, defensor, defensivo);
+
+		a.combatir();
+
+		assertEquals(a.danioDefensor(), 0);
+
+	}
+
+	public void testMonstruoEnDefensaSaleDestruidoCuandoPierdeElCombate(){
+
+        Jugador atacante = new Jugador("",10);
+        Jugador defensor = new Jugador("",10);
+        Monstruo agresivo = new Monstruo(100,20,1);
+        Monstruo defensivo = new Monstruo(10,10,1);
+        agresivo.colocarEnPosAtaque();
+        defensivo.colocarEnPosDefensa();
+
+        AreaDeCombate a = new AreaDeCombate(atacante, agresivo, defensor, defensivo);
+
+        a.combatir();
+
+        assertTrue(a.cartasADestruir().contains(defensivo));
+
+    }
 
 }
