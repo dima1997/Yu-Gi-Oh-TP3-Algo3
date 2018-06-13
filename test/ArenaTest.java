@@ -1,6 +1,7 @@
 import junit.framework.TestCase;
 
 public class ArenaTest extends TestCase {
+
     public void testArenaContieneEsTrueCuandoLaCartaRecibaFueColocadaEnLaArena(){
         Arena unaArena = new Arena();
         Carta unaCarta = new Magica();

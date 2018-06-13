@@ -5,29 +5,32 @@ import static java.lang.Math.abs;
 class AreaDeCombate {
 
     private LinkedList <Monstruo> cartasADestruir;
-    private int danioAtacante;
-    private int danioDefensor;
+    private int danioAtacante = 0;
+    private int danioDefensor = 0;
+
+    AreaDeCombate (){
+
+        this.danioDefensor = 0;
+        this.danioAtacante = 0;
+        this.cartasADestruir = new LinkedList<Monstruo>();
+
+    }
 
     void combatir(Jugador atacante, Monstruo monstruoAtacante, Jugador atacado, Monstruo monstruoAtacado){
+        
+        this.danioDefensor = monstruoAtacante.danioContra(monstruoAtacado);
+        this.danioAtacante = monstruoAtacado.danioContra(monstruoAtacante);
 
-        int puntosAtacante = monstruoAtacante.obtenerPuntos();
-        int puntosAtacado = monstruoAtacado.obtenerPuntos();
+        this.destruirSiElDanioEsCero(danioDefensor, monstruoAtacado);
+        this.destruirSiElDanioEsCero(danioAtacante, monstruoAtacante);
 
-        int diferenciaPuntos = puntosAtacante - puntosAtacado;
+    }
 
-        if (diferenciaPuntos > 0) {
-            this.danioDefensor = diferenciaPuntos;
-            this.cartasADestruir.add(monstruoAtacado);
-        }
+    private void destruirSiElDanioEsCero(int danio, Monstruo m){
 
-        if (diferenciaPuntos < 0) {
-            this.danioAtacante = abs(diferenciaPuntos);
-            this.cartasADestruir.add(monstruoAtacante);
-        }
+        if (danio == 0) {
 
-        if (diferenciaPuntos == 0) {
-            this.cartasADestruir.add(monstruoAtacado);
-            this.cartasADestruir.add(monstruoAtacante);
+            this.cartasADestruir.add(m);
 
         }
 
