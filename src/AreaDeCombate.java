@@ -12,7 +12,7 @@ class AreaDeCombate {
 
         this.danioDefensor = 0;
         this.danioAtacante = 0;
-        this.cartasADestruir = new LinkedList<Monstruo>()
+        this.cartasADestruir = new LinkedList<Monstruo>();
 
     }
 
