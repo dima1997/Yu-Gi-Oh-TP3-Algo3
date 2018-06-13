@@ -1,6 +1,6 @@
 public class Magica implements Carta {
 
-    private Efecto efecto;
+    Efecto efecto;
 
     Magica(Efecto e){
 
