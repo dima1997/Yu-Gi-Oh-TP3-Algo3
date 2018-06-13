@@ -36,7 +36,7 @@ class ArenaSingleton {
 
     }
 
-    private void enviarAlCementario(Carta unaCarta) {
+    void enviarAlCementario(Carta unaCarta) {
 
         this.cementerio.add(unaCarta);
 
