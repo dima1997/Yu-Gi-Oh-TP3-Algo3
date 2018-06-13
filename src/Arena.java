@@ -1,12 +1,13 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 class Arena {
     private ArrayList<Carta> cartas;
-    private Cementario cementerio;
+    private ArrayList<Carta> cementerio;
 
     Arena(){
         this.cartas = new ArrayList<Carta>();
-        this.cementerio = new Cementario();
+        this.cementerio = new ArrayList<Carta>();
     }
 
     void colocarCarta(Carta unaCarta) {
@@ -21,25 +22,36 @@ class Arena {
 
     }
 
+    private void enviarAlCementario(Carta unaCarta) {
 
-    void hacerCombatir(Monstruo monstruoAtacante, Jugador jugadorAtacante, Monstruo monstruoDefensor, Jugador jugadorDefensor) {
+        this.cementerio.add(unaCarta);
+
+    }
+
+    boolean estaEnElCementerio(Carta unaCarta) {
+
+        return this.cementerio.contains(unaCarta);
+
+    }
+
+    void hacerCombatir(Jugador jugadorAtacante, Monstruo monstruoAtacante, Jugador jugadorDefensor, Monstruo monstruoDefensor) {
         AreaDeCombate unCombate = new AreaDeCombate();
-        unCombate.hacerCombatir(jugadorAtacante, monstruoAtacante,jugadorDefensor, monstruoDefensor);
-        ArrayList<Carta> cartasADestruir = unCombate.cartasADestruir();
+
+        unCombate.combatir(jugadorAtacante, monstruoAtacante, jugadorDefensor, monstruoDefensor);
+
+        LinkedList<Carta> cartasADestruir = unCombate.cartasADestruir();
+
         for (int i = 0; i < cartasADestruir.size(); i++) {
         	Carta unaCarta = cartasADestruir.get(i);
         	this.cartas.remove(unaCarta);
-        	this.cementerio.destruir(unaCarta);
+        	this.enviarAlCementario(unaCarta);
         }
-        int puntosRestarAtacante = unCombate.DañoAtacante();
-        int puntosRestarDefensor = unCombate.DañoDefensor();
+
+        int puntosRestarAtacante = unCombate.danioAtacante();
+        int puntosRestarDefensor = unCombate.danioDefensor();
+
         jugadorAtacante.recibirAtaque(puntosRestarAtacante);
         jugadorDefensor.recibirAtaque(puntosRestarDefensor);
     }
 
-    boolean estaEnElCementerio(Monstruo unMonstruo) {
-
-        return this.cementerio.estaDestruida(unMonstruo);
-
-    }
 }
