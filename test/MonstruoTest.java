@@ -13,7 +13,7 @@ public class MonstruoTest extends TestCase {
 
             m1.danioContra(m2);
 
-        } catch (MonstruoNoPuedeAtacarError e){
+        } catch (MonstruoNoSeEncuentraEnArenaDeJuegoError e){
 
             lanzoError = true;
 
@@ -33,7 +33,7 @@ public class MonstruoTest extends TestCase {
 
             m1.danioContra(m2);
 
-        } catch (MonstruoNoPuedeAtacarError e){
+        } catch (MonstruoNoSeEncuentraEnArenaDeJuegoError e){
 
             lanzoError = true;
 
