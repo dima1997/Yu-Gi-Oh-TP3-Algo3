@@ -32,4 +32,14 @@ public class Monstruo {
         this.posicion.atacar(m2);
 
     }
+
+    int danioContra(Monstruo m){
+
+        if (this.danio < m.danio){
+            return 0;
+        }
+
+        return this.danio - m.danio;
+
+    }
 }
