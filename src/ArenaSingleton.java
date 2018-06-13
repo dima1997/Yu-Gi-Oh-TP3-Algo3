@@ -36,7 +36,7 @@ class ArenaSingleton {
 
     }
 
-    private void enviarAlCementario(Carta unaCarta) {
+    void enviarAlCementerio(Carta unaCarta) {
 
         this.cementerio.add(unaCarta);
 
@@ -58,7 +58,7 @@ class ArenaSingleton {
         for (int i = 0; i < cartasADestruir.size(); i++) {
         	Carta unaCarta = cartasADestruir.get(i);
         	this.cartas.remove(unaCarta);
-        	this.enviarAlCementario(unaCarta);
+        	this.enviarAlCementerio(unaCarta);
         }
 
         int puntosRestarAtacante = unCombate.danioAtacante();
@@ -70,7 +70,7 @@ class ArenaSingleton {
 
     public void destruirTodas() {
         for (Carta unaCarta: this.cartas) {
-            this.enviarAlCementario(unaCarta);
+            this.enviarAlCementerio(unaCarta);
         }
         this.cartas.clear();
     }
