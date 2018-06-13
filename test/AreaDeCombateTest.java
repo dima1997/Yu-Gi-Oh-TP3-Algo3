@@ -4,8 +4,8 @@ public class AreaDeCombateTest extends TestCase {
 	
 	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMenorAtaqueDestruyeElSegundo(){
 		
-		Jugador atacante = new Jugador(10);
-		Jugador defensor = new Jugador(10);
+		Jugador atacante = new Jugador("",10);
+		Jugador defensor = new Jugador("",10);
 		Monstruo agresivo = new Monstruo(20,20,1);
 		Monstruo defensivo = new Monstruo(10,10,1);
 		agresivo.colocarEnPosAtaque();
@@ -21,8 +21,8 @@ public class AreaDeCombateTest extends TestCase {
 	
 	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMenorAtaqueDevuelveDanioAtacanteCeroYDanioDefensorDisntoDeCero(){
 		
-		Jugador atacante = new Jugador(10);
-		Jugador defensor = new Jugador(10);
+		Jugador atacante = new Jugador("",10);
+		Jugador defensor = new Jugador("",10);
 		Monstruo agresivo = new Monstruo(20,20,1);
 		Monstruo defensivo = new Monstruo(10,10,1);
 		agresivo.colocarEnPosAtaque();
@@ -39,8 +39,8 @@ public class AreaDeCombateTest extends TestCase {
 
 	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMayorAtaqueDestruyeAlPrimero(){
 
-		Jugador atacante = new Jugador(10);
-		Jugador defensor = new Jugador(10);
+		Jugador atacante = new Jugador("",10);
+		Jugador defensor = new Jugador("",10);
 		Monstruo agresivo = new Monstruo(10,20,1);
 		Monstruo defensivo = new Monstruo(20,10,1);
 		agresivo.colocarEnPosAtaque();
@@ -56,8 +56,8 @@ public class AreaDeCombateTest extends TestCase {
 
 	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMayorAtaqueDevuelveDanioAtacanteDistintoDeCeroYDanioDefensorCeros(){
 
-		Jugador atacante = new Jugador(10);
-		Jugador defensor = new Jugador(10);
+		Jugador atacante = new Jugador("",10);
+		Jugador defensor = new Jugador("",10);
 		Monstruo agresivo = new Monstruo(20,20,1);
 		Monstruo defensivo = new Monstruo(10,10,1);
 		agresivo.colocarEnPosAtaque();
@@ -74,8 +74,8 @@ public class AreaDeCombateTest extends TestCase {
 
 	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConIgualAtaqueDestruyeAmbosMonstruos(){
 
-		Jugador atacante = new Jugador(10);
-		Jugador defensor = new Jugador(10);
+		Jugador atacante = new Jugador("",10);
+		Jugador defensor = new Jugador("",10);
 		Monstruo agresivo = new Monstruo(10,20,1);
 		Monstruo defensivo = new Monstruo(10,10,1);
 		agresivo.colocarEnPosAtaque();
@@ -92,8 +92,8 @@ public class AreaDeCombateTest extends TestCase {
 
 	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConIgualAtaqueGeneraDanioAtacanteYDefensorCero(){
 
-		Jugador atacante = new Jugador(10);
-		Jugador defensor = new Jugador(10);
+		Jugador atacante = new Jugador("",10);
+		Jugador defensor = new Jugador("",10);
 		Monstruo agresivo = new Monstruo(10,20,1);
 		Monstruo defensivo = new Monstruo(10,10,1);
 		agresivo.colocarEnPosAtaque();
