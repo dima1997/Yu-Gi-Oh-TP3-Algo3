@@ -19,7 +19,7 @@ public class AreaDeCombateTest extends TestCase {
 
 	}
 	
-	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMenorAtaqueDevuelveLosDañosCorrectos(){
+	public void testHacerCombatirMonstruoEnPosAtaqueContraMonstruoConMenorAtaqueDevuelveLosDaniosCorrectos(){
 		
 		Jugador atacante = new Jugador(10);
 		Jugador defensor = new Jugador(10);
