@@ -9,7 +9,9 @@ public class PosDefensa implements Posicion {
     }
 
     PosDefensa(Monstruo miMonstruo){
+
         this.miMonstruo = miMonstruo;
+
     }
 
     public int obtenerAtaque(){
@@ -25,7 +27,9 @@ public class PosDefensa implements Posicion {
     }
 
     public int recibirAtaque(Posicion otraPosicion){
+
         return 0;
+
     }
 
 }

@@ -27,18 +27,22 @@ public class Monstruo implements Carta{
     }
 
 
-    public void atacar(Monstruo m2) {
+    void atacar(Monstruo m2) {
 
         this.posicion.atacar(m2);
 
     }
-    /*Sin testear*/
-    public int obtenerAtaque() {
+
+    int obtenerAtaque() {
+
         return this.danio;
+
     }
-    /*Sin testear*/
-    public int obtenerDefensa() {
+
+    int obtenerDefensa() {
+
         return this.defensa;
+
     }
 
     int danioContra(Monstruo m){
