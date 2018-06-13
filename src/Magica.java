@@ -23,8 +23,4 @@ public class Magica implements Carta {
         arena.enviarAlCementerio(this);
 
     }
-
-
-    public void sacrificar() {
-    }
 }
