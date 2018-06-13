@@ -1,6 +1,6 @@
 import junit.framework.TestCase;
 
-public class ArenaTest extends TestCase {
+public class ArenaSingletonTest extends TestCase {
 
     public void testArenaContieneEsTrueCuandoLaCartaRecibaFueColocadaEnLaArena() {
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
