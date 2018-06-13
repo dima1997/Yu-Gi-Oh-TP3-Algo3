@@ -4,6 +4,7 @@ public class Monstruo implements Carta{
     private int danio;
     private int defensa;
     private int estrellas;
+    private Efecto efecto;
 
     Monstruo(int danio, int defensa, int estrellas){
 
@@ -11,6 +12,17 @@ public class Monstruo implements Carta{
         this.defensa = defensa;
         this.estrellas = estrellas;
         this.posicion = new Dormido();
+        this.efecto = new EfectoNulo();
+
+    }
+
+    Monstruo(int danio, int defensa, int estrellas, Efecto efecto){
+
+        this.danio = danio;
+        this.defensa = defensa;
+        this.estrellas = estrellas;
+        this.posicion = new Dormido();
+        this.efecto = efecto;
 
     }
 
