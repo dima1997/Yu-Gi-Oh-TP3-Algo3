@@ -3,7 +3,7 @@ import junit.framework.TestCase;
 public class ArenaTest extends TestCase {
 
     public void testArenaContieneEsTrueCuandoLaCartaRecibaFueColocadaEnLaArena() {
-        Arena unaArena = new Arena();
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
         Carta unaCarta = new Magica();
 
         unaArena.colocarCarta(unaCarta);
@@ -12,14 +12,14 @@ public class ArenaTest extends TestCase {
     }
 
     public void testArenaContieneEsFalseCuandoLaCartaRecibaNoFueColocadaEnLaArena() {
-        Arena unaArena = new Arena();
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
         Carta unaCarta = new Trampa();
 
         assertFalse(unaArena.contiene(unaCarta));
     }
 
     public void testArenaJugadorUnoAtacaConMonstruoAJugadorDosConMonstruoEnPosAtaqueYMenorAtaqueRecibiendoLaDiferenciaDeAtaqueEnDanioEsteUltimoYDestruyendoASuMonstruo() {
-        Arena unaArena = new Arena();
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
         Jugador jugadorDos = new Jugador("2", vidaInicial);
@@ -47,7 +47,7 @@ public class ArenaTest extends TestCase {
     }
 
     public void testArenaHacerCombatirJugadorUnoConMonstruoYJugadorDosConMonstruoEnPosAtaqueYMayorAtaqueRecibiendoLaDiferenciaDeAtaqueEnDanioElPrimeroYDestruyendoSuMonstruo() {
-        Arena unaArena = new Arena();
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
         Jugador jugadorDos = new Jugador("2", vidaInicial);
@@ -75,7 +75,7 @@ public class ArenaTest extends TestCase {
     }
 
     public void testArenaHacerCombatirJugadorUnoConMonstruoYJugadorDosConMonstruoEnPosAtaqueConMismoAtaqueSoloSeDestruyenLosMonstruos() {
-        Arena unaArena = new Arena();
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
         Jugador jugadorDos = new Jugador("2", vidaInicial);
@@ -101,7 +101,7 @@ public class ArenaTest extends TestCase {
     }
 
     public void testArenaJugadorUnoAtacaConMonstruoAJugadorDosConMonstruoEnPosDeDefensaYMenorDefensaQueSuAtaqueSoloDestruyeEsteUlitmoMonstruo() {
-        Arena unaArena = new Arena();
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
         Jugador jugadorDos = new Jugador("2", vidaInicial);
@@ -127,7 +127,7 @@ public class ArenaTest extends TestCase {
     }
 
     public void testArenaHacerCombatirJugadorUnoConMonstruoYJugadorDosConMonstruoEnPosDeDefensaConDefensaMayorASuAtaqueNoAfectaEnNadaALosMonstruosYJugadores() {
-        Arena unaArena = new Arena();
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
         Jugador jugadorDos = new Jugador("2", vidaInicial);
@@ -150,9 +150,9 @@ public class ArenaTest extends TestCase {
         assertEquals(vidaInicial, jugadorDos.verVida());
     }
 
-    /*
-    public void testArenaColocarAgujeroNegroDestruyetodasLaCartasPreviamenteColocadas(){
-        Arena unaArena = new Arena();
+
+    public void testArenaDestruirTodasDestruyetodasLaCartasPreviamenteColocadas(){
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
 
         Monstruo m1 = new Monstruo(1,1,1);
         Monstruo m2 = new Monstruo(1,1,1);
@@ -163,16 +163,13 @@ public class ArenaTest extends TestCase {
         unaArena.colocarCarta(m1);
         unaArena.colocarCarta(m2);
 
-        AgujeroNegro unAgujeroNegro = new AgujeroNegro();
-
-        unaArena.colocarCartaBocaArriba(unAgujeroNegro);
+        unaArena.destruirTodas();
 
         assertFalse(unaArena.contiene(m1));
         assertFalse(unaArena.contiene(m2));
         assertTrue(unaArena.estaEnElCementerio(m1));
         assertTrue(unaArena.estaEnElCementerio(m2));
-        assertTrue(unaArena.estaEnElCementerio(unAgujeroNegro));
 
     }
-    */
+
 }

@@ -1,14 +1,28 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-class Arena {
+class ArenaSingleton {
+    private static ArenaSingleton INSTANCE = null;
+
     private ArrayList<Carta> cartas;
     private ArrayList<Carta> cementerio;
 
-    Arena(){
+     private ArenaSingleton(){
         this.cartas = new ArrayList<Carta>();
         this.cementerio = new ArrayList<Carta>();
     }
+
+    private synchronized static void createInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new ArenaSingleton();
+        }
+    }
+
+    public static ArenaSingleton getInstance() {
+        if (INSTANCE == null) createInstance();
+        return INSTANCE;
+    }
+
 
     void colocarCarta(Carta unaCarta) {
 
@@ -54,4 +68,10 @@ class Arena {
         jugadorDefensor.recibirAtaque(puntosRestarDefensor);
     }
 
+    public void destruirTodas() {
+        for (Carta unaCarta: this.cartas) {
+            this.enviarAlCementario(unaCarta);
+        }
+        this.cartas.clear();
+    }
 }
