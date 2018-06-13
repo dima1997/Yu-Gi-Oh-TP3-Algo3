@@ -6,17 +6,24 @@ public class ArenaSingletonTest extends TestCase {
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
 
         Carta unaCarta = new Magica(new EfectoNulo());
+        Monstruo otraCarta = new Monstruo(1, 1, 1);
 
-        unaArena.colocarCarta(unaCarta);
+        unaArena.colocarMonstruo(otraCarta);
+        unaArena.colocarTrampaMagica(unaCarta);
 
         assertTrue(unaArena.contiene(unaCarta));
+        assertTrue(unaArena.contiene(otraCarta));
+
     }
 
     public void testArenaContieneEsFalseCuandoLaCartaRecibaNoFueColocadaEnLaArena() {
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         Carta unaCarta = new Trampa();
+        Monstruo otraCarta = new Monstruo(1, 1, 1);
 
         assertFalse(unaArena.contiene(unaCarta));
+        assertFalse(unaArena.contiene(otraCarta));
+
     }
 
     public void testArenaJugadorUnoAtacaConMonstruoAJugadorDosConMonstruoEnPosAtaqueYMenorAtaqueRecibiendoLaDiferenciaDeAtaqueEnDanioEsteUltimoYDestruyendoASuMonstruo() {
@@ -152,17 +159,17 @@ public class ArenaSingletonTest extends TestCase {
     }
 
 
-    public void testArenaDestruirTodasDestruyetodasLaCartasPreviamenteColocadas(){
+    public void testArenaDestruirTodasDestruyetodasLaCartasPreviamenteColocadas() {
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
 
-        Monstruo m1 = new Monstruo(1,1,1);
-        Monstruo m2 = new Monstruo(1,1,1);
+        Monstruo m1 = new Monstruo(1, 1, 1);
+        Monstruo m2 = new Monstruo(1, 1, 1);
 
         m1.colocarEnPosDefensa();
         m2.colocarEnPosAtaque();
 
-        unaArena.colocarCarta(m1);
-        unaArena.colocarCarta(m2);
+        unaArena.colocarMonstruo(m1);
+        unaArena.colocarMonstruo(m2);
 
         unaArena.destruirTodas();
 
@@ -171,6 +178,29 @@ public class ArenaSingletonTest extends TestCase {
         assertTrue(unaArena.estaEnElCementerio(m1));
         assertTrue(unaArena.estaEnElCementerio(m2));
 
+    }
+
+    public void testArenaSacrificarUnaDestruyeUnMonstruo() {
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
+        Monstruo m1 = new Monstruo(1, 1, 1);
+
+        unaArena.colocarMonstruo(m1);
+        unaArena.sacrificar(1);
+
+        assertTrue(unaArena.estaEnElCementerio(m1));
+    }
+
+    public void testArenaSacrificarDosDestruyeDosMonstruos() {
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
+        Monstruo m1 = new Monstruo(1, 1, 1);
+        Monstruo m2 = new Monstruo(1, 1, 1);
+
+        unaArena.colocarMonstruo(m1);
+        unaArena.colocarMonstruo(m2);
+        unaArena.sacrificar(2);
+
+        assertTrue(unaArena.estaEnElCementerio(m1));
+        assertTrue(unaArena.estaEnElCementerio(m2));
     }
 
 }
