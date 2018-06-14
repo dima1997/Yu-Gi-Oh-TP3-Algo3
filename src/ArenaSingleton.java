@@ -25,6 +25,9 @@ class ArenaSingleton {
         return INSTANCE;
     }
 
+    public static void reiniciar(){
+         INSTANCE = null;
+    }
 
     void colocarTrampaMagica(Carta unaCarta) {
 

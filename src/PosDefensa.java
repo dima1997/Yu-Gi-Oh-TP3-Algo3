@@ -25,5 +25,4 @@ public class PosDefensa implements Posicion {
         return 0;
 
     }
-
 }

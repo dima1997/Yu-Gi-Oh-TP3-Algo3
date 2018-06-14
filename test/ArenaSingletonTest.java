@@ -3,6 +3,7 @@ import junit.framework.TestCase;
 public class ArenaSingletonTest extends TestCase {
 
     public void testArenaContieneEsTrueCuandoLaCartaRecibaFueColocadaEnLaArena() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
 
         Carta unaCarta = new Magica(new EfectoNulo());
@@ -13,20 +14,22 @@ public class ArenaSingletonTest extends TestCase {
 
         assertTrue(unaArena.contiene(unaCarta));
         assertTrue(unaArena.contiene(otraCarta));
-
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaContieneEsFalseCuandoLaCartaRecibaNoFueColocadaEnLaArena() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         Carta unaCarta = new Trampa();
         Monstruo otraCarta = new Monstruo(1, 1, 1);
 
         assertFalse(unaArena.contiene(unaCarta));
         assertFalse(unaArena.contiene(otraCarta));
-
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaJugadorUnoAtacaConMonstruoAJugadorDosConMonstruoEnPosAtaqueYMenorAtaqueRecibiendoLaDiferenciaDeAtaqueEnDanioEsteUltimoYDestruyendoASuMonstruo() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
@@ -52,9 +55,11 @@ public class ArenaSingletonTest extends TestCase {
 
         assertEquals(vidaInicial, jugadorUno.verVida());
         assertEquals(vidaFinalJugadorDosEsperada, jugadorDos.verVida());
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaHacerCombatirJugadorUnoConMonstruoYJugadorDosConMonstruoEnPosAtaqueYMayorAtaqueRecibiendoLaDiferenciaDeAtaqueEnDanioElPrimeroYDestruyendoSuMonstruo() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
@@ -80,9 +85,11 @@ public class ArenaSingletonTest extends TestCase {
 
         assertEquals(vidaFinalJugadorUnoEsperada, jugadorUno.verVida());
         assertEquals(vidaInicial, jugadorDos.verVida());
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaHacerCombatirJugadorUnoConMonstruoYJugadorDosConMonstruoEnPosAtaqueConMismoAtaqueSoloSeDestruyenLosMonstruos() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
@@ -106,9 +113,11 @@ public class ArenaSingletonTest extends TestCase {
 
         assertEquals(vidaInicial, jugadorUno.verVida());
         assertEquals(vidaInicial, jugadorDos.verVida());
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaJugadorUnoAtacaConMonstruoAJugadorDosConMonstruoEnPosDeDefensaYMenorDefensaQueSuAtaqueSoloDestruyeEsteUlitmoMonstruo() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
@@ -132,9 +141,11 @@ public class ArenaSingletonTest extends TestCase {
 
         assertEquals(vidaInicial, jugadorUno.verVida());
         assertEquals(vidaInicial, jugadorDos.verVida());
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaHacerCombatirJugadorUnoConMonstruoYJugadorDosConMonstruoEnPosDeDefensaConDefensaMayorASuAtaqueNoAfectaEnNadaALosMonstruosYJugadores() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         int vidaInicial = 8000;
         Jugador jugadorUno = new Jugador("1", vidaInicial);
@@ -156,10 +167,12 @@ public class ArenaSingletonTest extends TestCase {
 
         assertEquals(vidaInicial, jugadorUno.verVida());
         assertEquals(vidaInicial, jugadorDos.verVida());
+        ArenaSingleton.reiniciar();
     }
 
 
     public void testArenaDestruirTodasDestruyetodasLaCartasPreviamenteColocadas() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
 
         Monstruo m1 = new Monstruo(1, 1, 1);
@@ -177,10 +190,11 @@ public class ArenaSingletonTest extends TestCase {
         assertFalse(unaArena.contiene(m2));
         assertTrue(unaArena.estaEnElCementerio(m1));
         assertTrue(unaArena.estaEnElCementerio(m2));
-
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaSacrificarUnaDestruyeUnMonstruo() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         Monstruo m1 = new Monstruo(1, 1, 1);
 
@@ -188,9 +202,11 @@ public class ArenaSingletonTest extends TestCase {
         unaArena.sacrificar(1);
 
         assertTrue(unaArena.estaEnElCementerio(m1));
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaSacrificarDosDestruyeDosMonstruos() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         Monstruo m1 = new Monstruo(1, 1, 1);
         Monstruo m2 = new Monstruo(1, 1, 1);
@@ -201,9 +217,11 @@ public class ArenaSingletonTest extends TestCase {
 
         assertTrue(unaArena.estaEnElCementerio(m1));
         assertTrue(unaArena.estaEnElCementerio(m2));
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaColocarMonstruoDe5EstrellasSacrificaUnsMonstruoDelTablero() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         Monstruo m1 = new Monstruo(1, 1, 1);
         Monstruo m2 = new Monstruo(1, 1, 5);
@@ -212,9 +230,11 @@ public class ArenaSingletonTest extends TestCase {
         unaArena.colocarMonstruo(m2);
 
         assertTrue(unaArena.estaEnElCementerio(m1));
+        ArenaSingleton.reiniciar();
     }
 
     public void testArenaColocarMonstruoDe7EstrellasSacrificaDosMonstruosDelTablero() {
+        ArenaSingleton.reiniciar();
         ArenaSingleton unaArena = ArenaSingleton.getInstance();
         Monstruo m1 = new Monstruo(1, 1, 1);
         Monstruo m2 = new Monstruo(1, 1, 1);
@@ -226,6 +246,6 @@ public class ArenaSingletonTest extends TestCase {
 
         assertTrue(unaArena.estaEnElCementerio(m1));
         assertTrue(unaArena.estaEnElCementerio(m2));
-
+        ArenaSingleton.reiniciar();
     }
 }

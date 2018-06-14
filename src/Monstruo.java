@@ -58,10 +58,12 @@ public class Monstruo implements Carta{
     }
 
     boolean esDestruidoPor(Monstruo m){
+
         int miDefensa = this.posicion.obtenerDefensa();
         int suAtaque = m.posicion.obtenerAtaque();
 
         return miDefensa <= suAtaque;
+
     }
 
 
