@@ -203,4 +203,29 @@ public class ArenaSingletonTest extends TestCase {
         assertTrue(unaArena.estaEnElCementerio(m2));
     }
 
+    public void testArenaColocarMonstruoDe5EstrellasSacrificaUnsMonstruoDelTablero() {
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
+        Monstruo m1 = new Monstruo(1, 1, 1);
+        Monstruo m2 = new Monstruo(1, 1, 5);
+
+        unaArena.colocarMonstruo(m1);
+        unaArena.colocarMonstruo(m2);
+
+        assertTrue(unaArena.estaEnElCementerio(m1));
+    }
+
+    public void testArenaColocarMonstruoDe7EstrellasSacrificaDosMonstruosDelTablero() {
+        ArenaSingleton unaArena = ArenaSingleton.getInstance();
+        Monstruo m1 = new Monstruo(1, 1, 1);
+        Monstruo m2 = new Monstruo(1, 1, 1);
+        Monstruo m3 = new Monstruo(1, 1, 7);
+
+        unaArena.colocarMonstruo(m1);
+        unaArena.colocarMonstruo(m2);
+        unaArena.colocarMonstruo(m3);
+
+        assertTrue(unaArena.estaEnElCementerio(m1));
+        assertTrue(unaArena.estaEnElCementerio(m2));
+
+    }
 }
