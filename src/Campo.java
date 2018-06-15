@@ -54,14 +54,14 @@ public class Campo {
     public void aumentarAtaque(int aumento) {
         for (int i=0; i<this.monstruos.size(); i++){
             Monstruo unMonstruo = this.monstruos.get(i);
-            unMonstruo.aumentarAtaque(200);
+            unMonstruo.aumentarAtaque(aumento);
         }
     }
 
     public void aumentarDefensa(int aumento) {
         for (int i=0; i<this.monstruos.size(); i++){
             Monstruo unMonstruo = this.monstruos.get(i);
-            unMonstruo.aumentarDefensa(300);
+            unMonstruo.aumentarDefensa(aumento);
         }
     }
 }
