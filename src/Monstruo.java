@@ -76,4 +76,12 @@ public class Monstruo implements Carta{
             arena.sacrificar(2);
         }
     }
+
+    public void aumentarAtaque(int aumento) {
+        this.danio += aumento;
+    }
+
+    public void aumentarDefensa(int aumento) {
+        this.defensa += aumento;
+    }
 }
