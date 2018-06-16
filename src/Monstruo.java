@@ -11,7 +11,7 @@ public class Monstruo implements Carta{
         this.danio = danio;
         this.defensa = defensa;
         this.estrellas = estrellas;
-        this.posicion = new Dormido();
+        this.posicion = new PosDormido();
         this.efecto = new EfectoNulo();
 
     }
@@ -21,7 +21,7 @@ public class Monstruo implements Carta{
         this.danio = danio;
         this.defensa = defensa;
         this.estrellas = estrellas;
-        this.posicion = new Dormido();
+        this.posicion = new PosDormido();
         this.efecto = efecto;
 
     }
@@ -45,15 +45,20 @@ public class Monstruo implements Carta{
     }
 
     void aumentarAtaque(int aumento) {
+
         this.danio += aumento;
+
     }
 
     void aumentarDefensa(int aumento) {
+
         this.defensa += aumento;
+
     }
 
     Botin atacar(Monstruo enemigo) {
 
+        this.posicion.atacar();
         Botin botin = new Botin();
 
         int dif = this.obtenerPuntos() - enemigo.obtenerPuntos();

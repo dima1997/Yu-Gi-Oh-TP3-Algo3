@@ -11,4 +11,10 @@ public class PosDefensa implements Posicion {
         return 0;
 
     }
+
+    public void atacar() {
+
+        throw new MonstruoNoSeEncuentraEnArenaDeJuegoError();
+
+    }
 }

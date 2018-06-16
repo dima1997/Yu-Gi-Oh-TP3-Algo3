@@ -125,6 +125,51 @@ public class MonstruoTest extends TestCase {
 
     }
 
+    public void testAitsuEnPosDefensaIntentaAtacarAAgujaAsesinaYSeLevantaUnaExcepcion(){
+
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        aitsu.colocarEnPosDefensa();
+
+        boolean lanzoError = false;
+
+        try{
+
+            aitsu.atacar(agujaAsesina);
+
+        }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e){
+
+            lanzoError = true;
+
+        }
+
+        assertTrue(lanzoError);
+
+    }
+
+    public void testAitsuEnPosAtaqueIntentaAtacarAAgujaAsesinaYNoSeLevantaUnaExcepcion(){
+
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        aitsu.colocarEnPosAtaque();
+        agujaAsesina.colocarEnPosDefensa();
+
+        boolean lanzoError = false;
+
+        try{
+
+            aitsu.atacar(agujaAsesina);
+
+        }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e){
+
+            lanzoError = true;
+
+        }
+
+        assertFalse(lanzoError);
+
+    }
+
 /*    public void testMonstruoDormidoDanioContraOtroMonstruoEnPosAtaqueLevantaError(){
         Monstruo m1 = new Monstruo(1,1,1);
         Monstruo m2 = new Monstruo(1,1,1);

@@ -1,4 +1,4 @@
-public class Dormido implements Posicion {
+public class PosDormido implements Posicion {
 
     public int obtenerPuntos(int danio, int defensa) {
 
@@ -9,6 +9,12 @@ public class Dormido implements Posicion {
     public int danioDePersonaje(int dif) {
 
         return 0;
+
+    }
+
+    public void atacar() {
+
+        throw new MonstruoNoSeEncuentraEnArenaDeJuegoError();
 
     }
 
