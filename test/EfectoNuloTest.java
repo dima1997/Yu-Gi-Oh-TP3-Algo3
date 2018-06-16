@@ -4,20 +4,24 @@ public class EfectoNuloTest extends TestCase {
 
     public void testActivarEfectoNuloNoDestruyeMonstruos(){
 
-        ArenaSingleton arena = ArenaSingleton.getInstance();
-        Monstruo uno = new Monstruo(10, 10, 1);
-        Monstruo dos = new Monstruo(1,1,1);
-        Monstruo tres = new Monstruo(2,2,2);
-        arena.colocarMonstruo(uno);
-        arena.colocarMonstruo(dos);
-        arena.colocarMonstruo(tres);
+        Cementerio unCementerio =  new Cementerio();
+
+        Campo campoUno = new Campo(unCementerio);
+        Campo campoDos = new Campo(unCementerio);
+        Monstruo m1 = new Monstruo(10, 10, 1);
+        Monstruo m2 = new Monstruo(1,1,1);
+        Monstruo m3 = new Monstruo(2,2,2);
+        campoUno.colocarMonstruo(m1);
+        campoDos.colocarMonstruo(m2);
+        campoDos.colocarMonstruo(m3);
+
         Efecto e = new EfectoNulo();
 
         e.activar();
 
-        assertFalse(arena.estaEnElCementerio(uno));
-        assertFalse(arena.estaEnElCementerio(dos));
-        assertFalse(arena.estaEnElCementerio(tres));
+        assertFalse(unCementerio.esta(m1));
+        assertFalse(unCementerio.esta(m2));
+        assertFalse(unCementerio.esta(m3));
 
     }
 
