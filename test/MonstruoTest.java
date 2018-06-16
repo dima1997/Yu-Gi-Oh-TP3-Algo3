@@ -92,7 +92,7 @@ public class MonstruoTest extends TestCase {
 
     }
 
-    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYElBotinQuita1100DeVidaAlAtacado(){
+    public void testPeleaAitsuAtacadoEnAtaqueContraAgujaAsesinaAtacanteEnAtaqueYElBotinQuita1100DeVidaAlAtacado(){
 
         Monstruo aitsu = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
@@ -108,6 +108,24 @@ public class MonstruoTest extends TestCase {
         assertEquals(atacado.verVida(), 10000 - 1100);
 
     }
+
+    public void testPeleaAitsuAtacanteEnAtaqueContraAgujaAsesinaAtacadoEnAtaqueYElBotinQuita1100DeVidaAlAtacante(){
+
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        Jugador atacante = new Jugador("", 10000);
+        Jugador atacado = new Jugador("", 10000);
+        aitsu.colocarEnPosAtaque();
+        agujaAsesina.colocarEnPosAtaque();
+
+        Botin b = aitsu.atacar(agujaAsesina);
+        b.infligirDanios(atacante, atacado);
+
+        assertEquals(atacante.verVida(), 10000 - 1100);
+        assertEquals(atacado.verVida(), 10000);
+
+    }
+
 
     public void testPeleaAitsuEnDefensaContraAgujaAsesinaEnAtaqueYElBotinNoQuitaVida(){
 

@@ -50,9 +50,21 @@ public class Monstruo implements Carta{
 
     }
 
+    public void reducirAtaque(int reduccion) {
+
+        this.danio -= reduccion;
+
+    }
+
     void aumentarDefensa(int aumento) {
 
         this.defensa += aumento;
+
+    }
+
+    public void reducirDefensa(int reduccion) {
+
+        this.defensa -= reduccion;
 
     }
 
@@ -89,4 +101,7 @@ public class Monstruo implements Carta{
     public void colocarEnCampo(Campo unCampo) {
         unCampo.colocarMonstruo(this);
     }
+
+
+
 }
