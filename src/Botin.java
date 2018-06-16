@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-class Botin {
+class Botin implements EfectoSobreCampo{
 
     private int danioDeAtacado;
     private int danioDeAtacante;
@@ -39,5 +39,9 @@ class Botin {
 
         }
 
+    }
+
+    public void activar(Campo c){
+        this.ejecutar(c);
     }
 }
