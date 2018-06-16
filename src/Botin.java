@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-class Botin {
+class Botin implements EfectoSobreCampo{
 
     private int danioDeAtacado;
     private int danioDeAtacante;
@@ -31,13 +31,17 @@ class Botin {
 
     }
 
-    void ejecutar(Cementerio c){
+    void ejecutar(Campo c){
 
         for (Monstruo m : this.muertos){
 
-            c.enviar(m);
+            c.destruir(m);
 
         }
 
+    }
+
+    public void activar(Campo c){
+        this.ejecutar(c);
     }
 }

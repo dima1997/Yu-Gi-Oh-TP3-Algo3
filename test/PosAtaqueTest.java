@@ -30,12 +30,14 @@ public class PosAtaqueTest extends TestCase {
 
         PosAtaque p = new PosAtaque();
         Cementerio c = new Cementerio();
+        Campo unCampo = new Campo(c);
         Monstruo m = new Monstruo(1,1,1);
+        unCampo.colocarMonstruo(m);
         Botin b = new Botin();
 
         p.matar(m, b);
 
-        b.ejecutar(c);
+        b.ejecutar(unCampo);
 
         assertTrue(c.esta(m));
 

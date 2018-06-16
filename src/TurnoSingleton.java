@@ -50,4 +50,11 @@ public class TurnoSingleton {
         this.jugadorDeTurno = this.jugadorOponente;
         this.jugadorOponente = jugadorTemporal;
     }
+
+    public void combatir(Monstruo aitsu, Monstruo agujaAsesina) {
+        Botin unBotin = aitsu.atacar(agujaAsesina);
+        this.aplicarEfectoSobreCampoDeTurno(unBotin);
+        this.aplicarEfectoSobreCampoOponente(unBotin);
+        unBotin.infligirDanios(this.jugadorDeTurno, this.jugadorOponente);
+    }
 }

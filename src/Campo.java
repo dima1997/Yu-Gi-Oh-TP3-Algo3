@@ -29,11 +29,12 @@ public class Campo {
     public void destruir(Object unaCarta) {
         if (this.monstruos.contains(unaCarta)){
             this.monstruos.remove(unaCarta);
+            this.cementerio.enviar(unaCarta);
         }
         if (this.magicas.contains(unaCarta)){
             this.magicas.remove(unaCarta);
+            this.cementerio.enviar(unaCarta);
         }
-        this.cementerio.enviar(unaCarta);
     }
 
     public void destruirTodas() {

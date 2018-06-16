@@ -117,4 +117,31 @@ public class TurnoSingletonTest extends TestCase {
 
         TurnoSingleton.reiniciar();
     }
+
+    public void testTurnoSingletonCombatirAitsuEnAtaqueContraAgujaAsesinaEnAtaqueResultaBotinMuereAitsuYJugadorDeTurnoPierdeVida(){
+        TurnoSingleton.reiniciar();
+        TurnoSingleton unTurno = TurnoSingleton.getInstance();
+        Campo campoUno =  new Campo();
+        Jugador jugadorUno = new Jugador("1", 8000, campoUno);
+        Campo campoDos =  new Campo();
+        Jugador jugadorDos = new Jugador("2", 8000, campoDos);
+
+        unTurno.setJugadores(jugadorUno,jugadorDos);
+
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+
+        unTurno.colocarMonstruoBocaArribaEnPosAtaque(aitsu);
+        unTurno.siguiente();
+        unTurno.colocarMonstruoBocaArribaEnPosAtaque(agujaAsesina);
+        unTurno.siguiente();
+
+        unTurno.combatir(aitsu,agujaAsesina);
+
+        assertFalse(campoUno.esta(aitsu));
+        assertTrue(campoDos.esta(agujaAsesina));
+        assertEquals(8000-1100, jugadorUno.verVida());
+        assertEquals(8000, jugadorDos.verVida());
+    }
+
 }
