@@ -7,7 +7,7 @@ public class TurnoSingleton {
 
     private TurnoSingleton(){
         this.jugadorDeTurno = new Jugador("1",8000);
-        this.jugadorDeTurno = new Jugador("2",8000);
+        this.jugadorOponente = new Jugador("2",8000);
 
     }
 

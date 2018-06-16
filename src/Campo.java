@@ -70,4 +70,8 @@ public class Campo {
             unMonstruo.aumentarDefensa(aumento);
         }
     }
+
+	public ArrayList<Monstruo> obtenerListaDeMonstruosBocaArriba() {
+		return monstruos;
+	}
 }
