@@ -1,20 +1,6 @@
-public class EfectoAgujeroNegro implements Efecto{
+public class EfectoAgujeroNegro implements EfectoSobreCampo {
 
-    private final Campo unCampo;
-    private final Campo otroCampo;
-
-    public EfectoAgujeroNegro(Campo unCampo, Campo otroCampo){
-        this.unCampo = unCampo;
-        this.otroCampo = otroCampo;
+    public void activar(Campo unCampo){
+        unCampo.destruirTodas();
     }
-
-    public void activar(){/*
-        this.unCampo.destruirTodas();
-        this.otroCampo.destruirTodas();
-        /*
-        ArenaSingleton arena = ArenaSingleton.getInstance();
-        arena.destruirTodas();
-        */
-    }
-
 }

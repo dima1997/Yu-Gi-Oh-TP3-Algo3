@@ -1,10 +1,16 @@
 import java.util.ArrayList;
 
 public class Campo {
-/*
+
     private final ArrayList<Monstruo> monstruos;
     private final Cementerio cementerio;
     private ArrayList<Magica> magicas;
+
+    public Campo(){
+        this.cementerio = new Cementerio();
+        this.monstruos = new ArrayList<Monstruo>();
+        this.magicas = new ArrayList<Magica>();
+    }
 
     public Campo(Cementerio unCementerio){
         this.cementerio = unCementerio;
@@ -47,7 +53,7 @@ public class Campo {
     }
 
     public void colocarMagicaBocaArriba(Magica unaCarta) {
-        unaCarta.colocarBocaArriba();
+        /*unaCarta.colocarBocaArriba();*/
         this.cementerio.enviar(unaCarta);
     }
 
@@ -63,5 +69,5 @@ public class Campo {
             Monstruo unMonstruo = this.monstruos.get(i);
             unMonstruo.aumentarDefensa(aumento);
         }
-    }*/
+    }
 }

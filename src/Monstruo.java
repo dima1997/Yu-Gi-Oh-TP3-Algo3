@@ -86,4 +86,7 @@ public class Monstruo implements Carta{
 
     }
 
+    public void colocarEnCampo(Campo unCampo) {
+        unCampo.colocarMonstruo(this);
+    }
 }
