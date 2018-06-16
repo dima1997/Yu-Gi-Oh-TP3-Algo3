@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class Monstruo implements Carta{
 
     private Posicion posicion;
@@ -42,6 +44,11 @@ public class Monstruo implements Carta{
 
         return this.posicion.obtenerPuntos(this.danio, this.defensa);
 
+    }
+    
+    int obtenerPuntosDeAtaque() {
+    	
+    	return this.danio;
     }
 
     void aumentarAtaque(int aumento) {
@@ -101,6 +108,19 @@ public class Monstruo implements Carta{
     public void colocarEnCampo(Campo unCampo) {
         unCampo.colocarMonstruo(this);
     }
+
+    //Comparador para ordenar los monstruos por puntos de ataque.
+	public static Comparator<Monstruo> CompararPorAtaque = new Comparator<Monstruo>() {
+		
+		public int compare(Monstruo m1, Monstruo m2) {
+			
+			int ataqueM1 = m1.obtenerPuntosDeAtaque();
+			int ataqueM2 = m2.obtenerPuntosDeAtaque();
+			
+			return ataqueM1-ataqueM2;
+					
+		}
+	};
 
 
 
