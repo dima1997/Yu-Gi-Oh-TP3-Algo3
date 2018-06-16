@@ -44,4 +44,10 @@ class Botin implements EfectoSobreCampo{
     public void activar(Campo c){
         this.ejecutar(c);
     }
+
+    void quitarMuerto(Monstruo m) {
+
+        this.muertos.remove(m);
+
+    }
 }
