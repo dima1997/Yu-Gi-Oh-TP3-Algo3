@@ -7,8 +7,24 @@ public class EfectoWasteland implements Efecto {
         this.campoOponente = campoOponente;
     }
 
-    public void activar(){/*
-        campoPropio.aumentarAtaque(200);
-        campoOponente.aumentarDefensa(300);
-    */}
+    public void activar(){
+        this.campoPropio.aumentarAtaque(200);
+        this.campoOponente.aumentarDefensa(300);
+    }
+
+    public void activarEn(Monstruo monstruo) {
+
+        if (this.campoPropio.esta(monstruo)) {
+
+            monstruo.aumentarAtaque(200);
+        }
+
+        if (this.campoOponente.esta(monstruo)) {
+
+            monstruo.aumentarDefensa(300);
+
+        }
+
+
+    }
 }
