@@ -2,25 +2,23 @@ import junit.framework.TestCase;
 
 public class PosAtaqueTest extends TestCase {/*
 
-    public void testPosAtaqueObtenerAtaqueDevuelveElAtaqueDelMonstruo(){
+    public void testPosAtaqueObtenerPuntosDevuelveElAtaqueDelMonstruo(){
 
-        Monstruo m1 = new Monstruo(100,1,1);
-        PosAtaque d = new PosAtaque(m1);
+        PosAtaque d = new PosAtaque();
 
-        assertEquals(d.obtenerAtaque(this.danio, this.defensa), 100);
-
-    }
-
-    public void testPosAtaqueObtenerDefensaDevuelveElAtaqueDelMonstruo(){
-
-        Monstruo m1 = new Monstruo(10,1,1);
-        PosAtaque d = new PosAtaque(m1);
-
-        assertEquals(d.obtenerDefensa(), 10);
+        assertEquals(d.obtenerPuntos(100, 1), 100);
 
     }
 
-    public void testPosAtaqueRecibirAtaqueDevuelve0SiTieneMenorAtaque(){
+    public void testPosDefensaObtenerPuntosDevuelveLaDefensaDelMonstruo(){
+
+        PosAtaque d = new PosAtaque();
+
+        assertEquals(d.obtenerPuntos(10, 1), 1);
+
+    }
+
+    public void testPosAtaqueDanioDePersonajeDevuelveElResultadoDeLaPelea(){
 
         Monstruo m1 = new Monstruo(100,1,1);
         PosAtaque d1 = new PosAtaque(m1);

@@ -38,7 +38,7 @@ public class Monstruo implements Carta{
 
     }
 
-    private int obtenerPuntos() {
+    int obtenerPuntos() {
 
         return this.posicion.obtenerPuntos(this.danio, this.defensa);
 
@@ -65,18 +65,25 @@ public class Monstruo implements Carta{
 
         if(dif >= 0){
 
-            botin.agregarMuerto(enemigo);
+            this.matar(enemigo, botin);
             botin.setDanioAtacado(enemigo.posicion.danioDePersonaje(dif));
 
         }
         if(dif <= 0){
 
-            botin.agregarMuerto(this);
+            enemigo.matar(this, botin);
             botin.setDanioAtacante(this.posicion.danioDePersonaje(dif));
 
         }
 
         return botin;
+
+    }
+
+    private void matar(Monstruo enemigo, Botin b) {
+
+        this.posicion.matar(enemigo, b);
+
     }
 
 }

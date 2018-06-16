@@ -45,7 +45,7 @@ public class MonstruoTest extends TestCase {
         assertTrue(c.esta(agujaAsesina));
     }
 
-    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnDefensaYAitsuMuere(){
+    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnDefensaYNingunoMuere(){
 
         Monstruo aitsu = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
@@ -56,10 +56,11 @@ public class MonstruoTest extends TestCase {
         Botin b = aitsu.atacar(agujaAsesina);
         b.ejecutar(c);
 
-        assertTrue(c.esta(aitsu));
+        assertFalse(c.esta(aitsu));
+        assertFalse(c.esta(agujaAsesina));
     }
 
-    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYMuerenAmbos(){
+    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYMuereAgresorOscuro(){
 
         Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
@@ -71,7 +72,7 @@ public class MonstruoTest extends TestCase {
         b.ejecutar(c);
 
         assertTrue(c.esta(agresorOscuro));
-        assertTrue(c.esta(agujaAsesina));
+        assertFalse(c.esta(agujaAsesina));
     }
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYElBotinNoQuitaVida(){
