@@ -1,33 +1,54 @@
 import junit.framework.TestCase;
 
-public class PosDefensaTest extends TestCase {/*
+public class PosDefensaTest extends TestCase {
 
-    public void testPosDefensaAtaqueDevuelve0SinImportarElMonstruo(){
+    public void testPosDefensaObtenerPuntosDevuelveLaDefensaDelMonstruo() {
 
-        Monstruo m1 = new Monstruo(1,1,1);
-        PosDefensa d = new PosDefensa(m1);
+        PosDefensa d = new PosDefensa();
 
-        assertEquals(d.obtenerAtaque(this.danio, this.defensa), 0);
-
-    }
-
-    public void testPosDefensaDefensaDevuelveLosPuntosDeDefensaDelMosntruo(){
-
-        Monstruo m1 = new Monstruo(1,20,1);
-        PosDefensa d = new PosDefensa(m1);
-
-        assertEquals(d.obtenerDefensa(), 20);
+        assertEquals(d.obtenerPuntos(100, 1), 1);
 
     }
 
-    public void testPosDefensaRecibirAtaqueDevuelve0SinImportarLaPosicionContraria(){
+    public void testPosDefensaDanioDePersonajeDevuelveCero(){
 
-        Monstruo m1 = new Monstruo(1,20,1);
-        PosDefensa d1 = new PosDefensa(m1);
-        PosDefensa d2 = new PosDefensa(m1);
+        PosDefensa p = new PosDefensa();
 
-        assertEquals(d1.recibirAtaque(d2), 0);
+        assertEquals(p.danioDePersonaje(200), 0);
 
-    }*/
+    }
+
+    public void testPosDefensaMatarAUnMonstruoNoLoAgregaAlBotinDeMuertos(){
+
+        PosDefensa p = new PosDefensa();
+        Cementerio c = new Cementerio();
+        Monstruo m = new Monstruo(1,1,1);
+        Botin b = new Botin();
+
+        p.matar(m, b);
+
+        b.ejecutar(c);
+
+        assertFalse(c.esta(m));
+
+    }
+
+    public void testPosAtaqueAtacarLanzaError(){
+
+        PosDefensa p = new PosDefensa();
+        boolean lanzoError = false;
+
+        try{
+
+            p.atacar();
+
+        }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e ){
+
+            lanzoError = true;
+
+        }
+
+        assertTrue(lanzoError);
+    }
 
 }

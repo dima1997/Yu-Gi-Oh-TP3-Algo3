@@ -1,8 +1,8 @@
 import junit.framework.TestCase;
 
-public class PosAtaqueTest extends TestCase {/*
+public class PosAtaqueTest extends TestCase {
 
-    public void testPosAtaqueObtenerPuntosDevuelveElAtaqueDelMonstruo(){
+    public void testPosAtaqueObtenerPuntosDevuelveElAtaqueDelMonstruo() {
 
         PosAtaque d = new PosAtaque();
 
@@ -10,34 +10,53 @@ public class PosAtaqueTest extends TestCase {/*
 
     }
 
-    public void testPosDefensaObtenerPuntosDevuelveLaDefensaDelMonstruo(){
-
-        PosAtaque d = new PosAtaque();
-
-        assertEquals(d.obtenerPuntos(10, 1), 1);
-
-    }
-
     public void testPosAtaqueDanioDePersonajeDevuelveElResultadoDeLaPelea(){
 
-        Monstruo m1 = new Monstruo(100,1,1);
-        PosAtaque d1 = new PosAtaque(m1);
-        Monstruo m2 = new Monstruo(10,1,1);
-        PosAtaque d2 = new PosAtaque(m2);
+        PosAtaque p = new PosAtaque();
 
-        assertEquals(d1.recibirAtaque(d2), 0);
+        assertEquals(p.danioDePersonaje(200), 200);
 
     }
 
-    public void testPosAtaqueDe100ContraPosAtaqueDe10Devuelve90(){
+    public void testPosAtaqueDanioDePersonajeDevuelveElResultadoDeLaPeleaEnModulo(){
 
-        Monstruo m1 = new Monstruo(10,1,1);
-        PosAtaque d1 = new PosAtaque(m1);
-        Monstruo m2 = new Monstruo(100,1,1);
-        PosAtaque d2 = new PosAtaque(m2);
+        PosAtaque p = new PosAtaque();
 
-        assertEquals(d1.recibirAtaque(d2), 90);
+        assertEquals(p.danioDePersonaje(-200), 200);
 
     }
-*/
+
+    public void testPosAtaqueMatarAUnMonstruoLoAgregaAlBotinDeMuertos(){
+
+        PosAtaque p = new PosAtaque();
+        Cementerio c = new Cementerio();
+        Monstruo m = new Monstruo(1,1,1);
+        Botin b = new Botin();
+
+        p.matar(m, b);
+
+        b.ejecutar(c);
+
+        assertTrue(c.esta(m));
+
+    }
+
+    public void testPosAtaqueAtacarNoLanzaError(){
+
+        PosAtaque p = new PosAtaque();
+        boolean lanzoError = false;
+
+        try{
+
+            p.atacar();
+
+        }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e ){
+
+            lanzoError = true;
+
+        }
+
+        assertFalse(lanzoError);
+    }
+
 }
