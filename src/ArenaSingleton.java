@@ -99,5 +99,4 @@ class ArenaSingleton {
          this.cartasMonstruo.add(unMonstruo);
 
     }
-}
-*/
+}*/
