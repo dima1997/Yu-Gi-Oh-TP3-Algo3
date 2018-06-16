@@ -50,4 +50,55 @@ public class JugadorTest extends TestCase {
 		assertFalse(campoUno.esta(agresorOscuro));
 		assertFalse(campoUno.esta(agresorOscuro));
 	}
+
+	public void testJugadorAplicarEfectosDeCampoAplicaEfectosDeCamposAgregadosEnMonstruo(){
+        Campo campoUno =  new Campo();
+        Jugador jugadorUno = new Jugador("1", 8000, campoUno);
+        Campo campoDos =  new Campo();
+        Jugador jugadorDos = new Jugador("2", 8000, campoDos);
+
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo mokeyMokey = new Monstruo(300, 100, 4);
+        aitsu.colocarEnPosAtaque();
+        mokeyMokey.colocarEnPosAtaque();
+        campoUno.colocarMonstruo(aitsu);
+        campoDos.colocarMonstruo(mokeyMokey);
+
+        EfectoSobreMonstruo efectoWastelandAtaque = new EfectoWastelandAtaque();
+        jugadorUno.agregarEfectoDeCampo(efectoWastelandAtaque);
+        jugadorUno.aplicarEfectosDeCampo(aitsu);
+
+        Botin unBotin = aitsu.atacar(mokeyMokey);
+        unBotin.ejecutar(campoUno);
+        unBotin.ejecutar(campoDos);
+
+        assertFalse(campoUno.esta(aitsu));
+        assertFalse(campoDos.esta(mokeyMokey));
+    }
+
+    public void testJugadorDesaplicarEfectosDeCampoDesaplicaEfectosDeCamposAgregadosEnMonstruo(){
+        Campo campoUno =  new Campo();
+        Jugador jugadorUno = new Jugador("1", 8000, campoUno);
+        Campo campoDos =  new Campo();
+        Jugador jugadorDos = new Jugador("2", 8000, campoDos);
+
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo mokeyMokey = new Monstruo(300, 100, 4);
+        aitsu.colocarEnPosAtaque();
+        mokeyMokey.colocarEnPosAtaque();
+        campoUno.colocarMonstruo(aitsu);
+        campoDos.colocarMonstruo(mokeyMokey);
+
+        EfectoSobreMonstruo efectoWastelandAtaque = new EfectoWastelandAtaque();
+        jugadorUno.agregarEfectoDeCampo(efectoWastelandAtaque);
+        jugadorUno.aplicarEfectosDeCampo(aitsu);
+        jugadorUno.desaplicarEfectosDeCampo(aitsu);
+
+        Botin unBotin = aitsu.atacar(mokeyMokey);
+        unBotin.ejecutar(campoUno);
+        unBotin.ejecutar(campoDos);
+
+        assertFalse(campoUno.esta(aitsu));
+        assertTrue(campoDos.esta(mokeyMokey));
+    }
 }

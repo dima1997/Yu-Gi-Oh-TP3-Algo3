@@ -118,7 +118,7 @@ public class TurnoSingletonTest extends TestCase {
         TurnoSingleton.reiniciar();
     }
 
-    public void testTurnoSingletonCombatirAitsuEnAtaqueContraAgujaAsesinaEnAtaqueResultaBotinMuereAitsuYJugadorDeTurnoPierdeVida(){
+    public void testTurnoSingletonCombatirAitsuEnAtaqueContraAgujaAsesinaEnAtaqueResultadoBotinMuereAitsuYJugadorDeTurnoPierdeVida(){
         TurnoSingleton.reiniciar();
         TurnoSingleton unTurno = TurnoSingleton.getInstance();
         Campo campoUno =  new Campo();
@@ -142,6 +142,71 @@ public class TurnoSingletonTest extends TestCase {
         assertTrue(campoDos.esta(agujaAsesina));
         assertEquals(8000-1100, jugadorUno.verVida());
         assertEquals(8000, jugadorDos.verVida());
+        TurnoSingleton.reiniciar();
     }
 
+    public void testTurnoSingletonCombatirAitsuEnAtaqueContraMokeyMokeyEnAtaqueTrasAgregarEfectoDeCampoEnJugadorDeTurnoEfectoWasteLandAtaqueResultadoBotinMuerenAmbosYNingunJugadorPierdeVida(){
+        TurnoSingleton.reiniciar();
+        TurnoSingleton unTurno = TurnoSingleton.getInstance();
+        Campo campoUno =  new Campo();
+        Jugador jugadorUno = new Jugador("1", 8000, campoUno);
+        Campo campoDos =  new Campo();
+        Jugador jugadorDos = new Jugador("2", 8000, campoDos);
+
+        unTurno.setJugadores(jugadorUno,jugadorDos);
+
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo mokeyMokey = new Monstruo(300, 100, 4);
+
+        unTurno.colocarMonstruoBocaArribaEnPosAtaque(aitsu);
+        unTurno.siguiente();
+        unTurno.colocarMonstruoBocaArribaEnPosAtaque(mokeyMokey);
+        unTurno.siguiente();
+
+        EfectoSobreMonstruo efectoWastelandAtaque = new EfectoWastelandAtaque();
+
+        unTurno.agregarEfectoDeCampoEnJugadorDeTurno(efectoWastelandAtaque);
+
+        unTurno.combatir(aitsu,mokeyMokey);
+
+        assertFalse(campoUno.esta(aitsu));
+        assertFalse(campoDos.esta(mokeyMokey));
+        assertEquals(8000, jugadorUno.verVida());
+        assertEquals(8000, jugadorDos.verVida());
+        TurnoSingleton.reiniciar();
+    }
+
+    public void testTurnoSingletonCombatirMokeyMokeyEnDefensaContraAitsuEnDefensaTrasAgregarEfectoDeCampoEnJugadorOponenteEfectoWasteLandDefensa(){
+        TurnoSingleton.reiniciar();
+        TurnoSingleton unTurno = TurnoSingleton.getInstance();
+        Campo campoUno =  new Campo();
+        Jugador jugadorUno = new Jugador("1", 8000, campoUno);
+        Campo campoDos =  new Campo();
+        Jugador jugadorDos = new Jugador("2", 8000, campoDos);
+
+        unTurno.setJugadores(jugadorUno,jugadorDos);
+
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo aitsuConUnPuntoMasDefensa = new Monstruo(100, 101, 5);
+        Monstruo goblinFalso = new Monstruo(400, 400, 4);
+
+        unTurno.colocarMonstruoBocaArribaEnPosAtaque(goblinFalso);
+        unTurno.siguiente();
+        unTurno.colocarMonstruoBocaArribaEnPosDefensa(aitsu);
+        unTurno.colocarMonstruoBocaArribaEnPosDefensa(aitsuConUnPuntoMasDefensa);
+        unTurno.siguiente();
+
+        EfectoSobreMonstruo efectoWastelandDefensa = new EfectoWastelandDefensa();
+
+        unTurno.agregarEfectoDeCampoEnJugadorOponente(efectoWastelandDefensa);
+
+        unTurno.combatir(goblinFalso,aitsu);
+        unTurno.combatir(goblinFalso,aitsuConUnPuntoMasDefensa);
+
+        assertTrue(campoUno.esta(goblinFalso));
+        assertFalse(campoDos.esta(aitsu));
+
+        assertTrue(campoDos.esta(aitsuConUnPuntoMasDefensa));
+        TurnoSingleton.reiniciar();
+    }
 }

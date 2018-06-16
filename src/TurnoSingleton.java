@@ -51,10 +51,32 @@ public class TurnoSingleton {
         this.jugadorOponente = jugadorTemporal;
     }
 
-    public void combatir(Monstruo aitsu, Monstruo agujaAsesina) {
-        Botin unBotin = aitsu.atacar(agujaAsesina);
+    public void combatir(Monstruo monstruoDeTurno, Monstruo monstruoOponente) {
+
+        this.jugadorDeTurno.aplicarEfectosDeCampo(monstruoDeTurno);
+        this.jugadorOponente.aplicarEfectosDeCampo(monstruoOponente);
+
+        Botin unBotin = monstruoDeTurno.atacar(monstruoOponente);
         this.aplicarEfectoSobreCampoDeTurno(unBotin);
         this.aplicarEfectoSobreCampoOponente(unBotin);
         unBotin.infligirDanios(this.jugadorDeTurno, this.jugadorOponente);
+
+        this.jugadorDeTurno.desaplicarEfectosDeCampo(monstruoDeTurno);
+        this.jugadorOponente.desaplicarEfectosDeCampo(monstruoOponente);
+
+    }
+
+    public void agregarEfectoDeCampoEnJugadorDeTurno(EfectoSobreMonstruo efectoDeCampo) {
+        this.jugadorDeTurno.agregarEfectoDeCampo(efectoDeCampo);
+    }
+
+    public void colocarMonstruoBocaArribaEnPosDefensa(Monstruo unMonstruo) {
+        unMonstruo.colocarEnPosDefensa();
+        /*unMonstruo.colocarBocaArriba();*/
+        this.jugadorDeTurno.colocarCarta(unMonstruo);
+    }
+
+    public void agregarEfectoDeCampoEnJugadorOponente(EfectoSobreMonstruo efectoDeCampo) {
+        this.jugadorOponente.agregarEfectoDeCampo(efectoDeCampo);
     }
 }
