@@ -7,11 +7,14 @@ public class MonstruoTest extends TestCase {
         Monstruo aitsu = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Cementerio c = new Cementerio();
+        Campo unCampo = new Campo(c);
+        unCampo.colocarMonstruo(aitsu);
+        unCampo.colocarMonstruo(agujaAsesina);
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
         Botin b = aitsu.atacar(agujaAsesina);
-        b.ejecutar(c);
+        b.ejecutar(unCampo);
 
         assertTrue(c.esta(aitsu));
     }
@@ -21,11 +24,15 @@ public class MonstruoTest extends TestCase {
         Monstruo alasDeLlamaPerversa = new Monstruo(700, 600, 2);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Cementerio c = new Cementerio();
+        Campo unCampo = new Campo(c);
+        unCampo.colocarMonstruo(alasDeLlamaPerversa);
+        unCampo.colocarMonstruo(agujaAsesina);
         alasDeLlamaPerversa.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
+
         Botin b = agujaAsesina.atacar(alasDeLlamaPerversa);
-        b.ejecutar(c);
+        b.ejecutar(unCampo);
 
         assertTrue(c.esta(alasDeLlamaPerversa));
     }
@@ -35,11 +42,14 @@ public class MonstruoTest extends TestCase {
         Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Cementerio c = new Cementerio();
+        Campo unCampo = new Campo(c);
+        unCampo.colocarMonstruo(agresorOscuro);
+        unCampo.colocarMonstruo(agujaAsesina);
         agresorOscuro.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
         Botin b = agujaAsesina.atacar(agresorOscuro);
-        b.ejecutar(c);
+        b.ejecutar(unCampo);
 
         assertTrue(c.esta(agresorOscuro));
         assertTrue(c.esta(agujaAsesina));
@@ -50,11 +60,14 @@ public class MonstruoTest extends TestCase {
         Monstruo aitsu = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Cementerio c = new Cementerio();
+        Campo unCampo = new Campo(c);
+        unCampo.colocarMonstruo(aitsu);
+        unCampo.colocarMonstruo(agujaAsesina);
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
 
         Botin b = aitsu.atacar(agujaAsesina);
-        b.ejecutar(c);
+        b.ejecutar(unCampo);
 
         assertFalse(c.esta(aitsu));
         assertFalse(c.esta(agujaAsesina));
@@ -65,11 +78,14 @@ public class MonstruoTest extends TestCase {
         Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Cementerio c = new Cementerio();
+        Campo unCampo = new Campo(c);
+        unCampo.colocarMonstruo(agresorOscuro);
+        unCampo.colocarMonstruo(agujaAsesina);
         agresorOscuro.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
 
         Botin b = agujaAsesina.atacar(agresorOscuro);
-        b.ejecutar(c);
+        b.ejecutar(unCampo);
 
         assertTrue(c.esta(agresorOscuro));
         assertFalse(c.esta(agujaAsesina));

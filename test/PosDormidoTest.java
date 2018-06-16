@@ -34,10 +34,12 @@ public class PosDormidoTest extends TestCase {
         PosDormido p = new PosDormido();
         Botin b = new Botin();
         Cementerio c = new Cementerio();
+        Campo unCampo = new Campo(c);
         Monstruo m = new Monstruo(1,1,1);
+        unCampo.colocarMonstruo(m);
         p.matar(m, b);
 
-        b.ejecutar(c);
+        b.ejecutar(unCampo);
 
         assertFalse(c.esta(m));
 
