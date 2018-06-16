@@ -1,8 +1,6 @@
 public interface Posicion {
 
-    int obtenerAtaque();
+    int obtenerPuntos(int danio, int defensa);
 
-    int obtenerDefensa();
-
-    int recibirAtaque(Posicion suPosicion);
+    int danioDePersonaje(int dif);
 }

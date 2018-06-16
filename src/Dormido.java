@@ -1,20 +1,14 @@
 public class Dormido implements Posicion {
 
-    public int obtenerAtaque(){
+    public int obtenerPuntos(int danio, int defensa) {
 
         throw new MonstruoNoSeEncuentraEnArenaDeJuegoError();
 
     }
 
-    public int obtenerDefensa(){
+    public int danioDePersonaje(int dif) {
 
-        throw new MonstruoNoSeEncuentraEnArenaDeJuegoError();
-
-    }
-
-    public int recibirAtaque(Posicion otraPosicion){
-
-        throw new MonstruoNoSeEncuentraEnArenaDeJuegoError();
+        return 0;
 
     }
 

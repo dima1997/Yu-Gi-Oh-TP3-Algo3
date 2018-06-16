@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Campo {
-
+/*
     private final ArrayList<Monstruo> monstruos;
     private final Cementerio cementerio;
     private ArrayList<Magica> magicas;
@@ -63,5 +63,5 @@ public class Campo {
             Monstruo unMonstruo = this.monstruos.get(i);
             unMonstruo.aumentarDefensa(aumento);
         }
-    }
+    }*/
 }

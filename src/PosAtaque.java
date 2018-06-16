@@ -1,33 +1,15 @@
 public class PosAtaque implements Posicion {
 
-    private final Monstruo miMonstruo;
+    public int obtenerPuntos(int danio, int defensa){
 
-    PosAtaque(Monstruo miMonstruo){
-
-        this.miMonstruo = miMonstruo;
+        return danio;
 
     }
 
-    public int obtenerAtaque(){
+    public int danioDePersonaje(int resultadoDeBatalla){
 
-        return this.miMonstruo.obtenerAtaque();
-
-    }
-
-    public int obtenerDefensa(){
-
-        return this.miMonstruo.obtenerAtaque();
+        return Math.abs(resultadoDeBatalla);
 
     }
 
-    public int recibirAtaque(Posicion otraPosicion){
-        int suAtaque = otraPosicion.obtenerAtaque();
-        int miDefensa = this.obtenerDefensa();
-
-        if (miDefensa > suAtaque){
-            return 0;
-        }
-
-        return suAtaque - miDefensa;
-    }
 }

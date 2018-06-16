@@ -28,60 +28,50 @@ public class Monstruo implements Carta{
 
     void colocarEnPosAtaque(){
 
-        this.posicion = new PosAtaque(this);
+        this.posicion = new PosAtaque();
 
     }
 
     void colocarEnPosDefensa(){
 
-        this.posicion = new PosDefensa(this);
+        this.posicion = new PosDefensa();
 
     }
 
-    int obtenerAtaque() {
+    private int obtenerPuntos() {
 
-        return this.danio;
-
-    }
-
-    int obtenerDefensa() {
-
-        return this.defensa;
+        return this.posicion.obtenerPuntos(this.danio, this.defensa);
 
     }
 
-    int danioContra(Monstruo m){
-        Posicion miPosicion = this.posicion;
-        Posicion suPosicion = m.posicion;
-
-        return suPosicion.recibirAtaque(miPosicion);
-    }
-
-    boolean esDestruidoPor(Monstruo m){
-
-        int miDefensa = this.posicion.obtenerDefensa();
-        int suAtaque = m.posicion.obtenerAtaque();
-
-        return miDefensa <= suAtaque;
-
-    }
-
-
-    public void sacrificar() {
-        ArenaSingleton arena = ArenaSingleton.getInstance();
-        if (this.estrellas == 5 || this.estrellas == 6) {
-            arena.sacrificar(1);
-        }
-        else if (this.estrellas > 6){
-            arena.sacrificar(2);
-        }
-    }
-
-    public void aumentarAtaque(int aumento) {
+    void aumentarAtaque(int aumento) {
         this.danio += aumento;
     }
 
-    public void aumentarDefensa(int aumento) {
+    void aumentarDefensa(int aumento) {
         this.defensa += aumento;
     }
+
+    Botin atacar(Monstruo enemigo) {
+
+        Botin botin = new Botin();
+
+        int dif = this.obtenerPuntos() - enemigo.obtenerPuntos();
+
+        if(dif >= 0){
+
+            botin.agregarMuerto(enemigo);
+            botin.setDanioAtacado(enemigo.posicion.danioDePersonaje(dif));
+
+        }
+        if(dif <= 0){
+
+            botin.agregarMuerto(this);
+            botin.setDanioAtacante(this.posicion.danioDePersonaje(dif));
+
+        }
+
+        return botin;
+    }
+
 }

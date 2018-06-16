@@ -1,26 +1,12 @@
 public class PosDefensa implements Posicion {
 
-    private final Monstruo miMonstruo;
+    public int obtenerPuntos(int danio, int defensa){
 
-    PosDefensa(Monstruo miMonstruo){
-
-        this.miMonstruo = miMonstruo;
+        return defensa;
 
     }
 
-    public int obtenerAtaque(){
-
-        return 0;
-
-    }
-
-    public int obtenerDefensa(){
-
-        return miMonstruo.obtenerDefensa();
-
-    }
-
-    public int recibirAtaque(Posicion otraPosicion){
+    public int danioDePersonaje(int resultadoDeBatalla){
 
         return 0;
 

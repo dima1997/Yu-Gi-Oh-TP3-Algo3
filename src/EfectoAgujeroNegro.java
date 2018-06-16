@@ -8,7 +8,7 @@ public class EfectoAgujeroNegro implements Efecto{
         this.otroCampo = otroCampo;
     }
 
-    public void activar(){
+    public void activar(){/*
         this.unCampo.destruirTodas();
         this.otroCampo.destruirTodas();
         /*

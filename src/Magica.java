@@ -1,5 +1,5 @@
 public class Magica implements Carta {
-
+/*
     Efecto efecto;
 
     Magica(Efecto e){
@@ -22,5 +22,5 @@ public class Magica implements Carta {
 
         arena.enviarAlCementerio(this);
 
-    }
+    }*/
 }

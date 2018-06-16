@@ -1,13 +1,12 @@
 import junit.framework.TestCase;
 
 public class EfectoAgujeroNegroTest extends TestCase {
-
+/*
     public void testActivarEfectoAgujeroNegroEnviaTodosLosMonstruosDeLosCamposDeAmbosJugadoresAlCementerio(){
         Cementerio unCementerio =  new Cementerio();
 
         Campo campoUno = new Campo(unCementerio);
         Campo campoDos = new Campo(unCementerio);
-        /*ArenaSingleton arena = ArenaSingleton.getInstance();*/
         Monstruo m1 = new Monstruo(10, 10, 1);
         Monstruo m2 = new Monstruo(1,1,1);
         Monstruo m3 = new Monstruo(2,2,2);
@@ -28,5 +27,5 @@ public class EfectoAgujeroNegroTest extends TestCase {
         assertTrue(unCementerio.esta(m3));
 
     }
-
+*/
 }

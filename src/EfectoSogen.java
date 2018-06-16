@@ -7,8 +7,8 @@ public class EfectoSogen implements Efecto {
         this.campoOponente = campoOponente;
     }
 
-    public void activar(){
+    public void activar(){/*
         this.campoPropio.aumentarDefensa(500);
         this.campoOponente.aumentarAtaque(200);
-    }
+    */}
 }
