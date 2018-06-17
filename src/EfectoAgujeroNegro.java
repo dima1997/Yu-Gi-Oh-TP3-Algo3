@@ -17,4 +17,5 @@ public class EfectoAgujeroNegro implements Efecto{
         */
     }
 
+    public void activarEn(MonstruoComun m){}
 }

@@ -12,7 +12,7 @@ public class PosDormido implements Posicion {
 
     }
 
-    public void matar(Monstruo enemigo, Botin b) {
+    public void matar(MonstruoComun enemigo, Botin b) {
 
         throw new MonstruoNoSeEncuentraEnArenaDeJuegoError();
 

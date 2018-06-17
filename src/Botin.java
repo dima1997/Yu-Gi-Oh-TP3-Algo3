@@ -4,9 +4,9 @@ class Botin {
 
     private int danioDeAtacado;
     private int danioDeAtacante;
-    private LinkedList<Monstruo> muertos = new LinkedList<>();
+    private LinkedList<MonstruoComun> muertos = new LinkedList<>();
 
-    void agregarMuerto(Monstruo m ){
+    void agregarMuerto(MonstruoComun m ){
 
         this.muertos.add(m);
 
@@ -33,7 +33,7 @@ class Botin {
 
     void ejecutar(Cementerio c){
 
-        for (Monstruo m : this.muertos){
+        for (MonstruoComun m : this.muertos){
 
             c.enviar(m);
 

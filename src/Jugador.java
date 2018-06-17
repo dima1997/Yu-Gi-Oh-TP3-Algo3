@@ -28,14 +28,14 @@ class Jugador {
 
     }
 
-    public void colocarMosntruoEnPosAtaque(Monstruo monstruo) {
+    public void colocarMosntruoEnPosAtaque(MonstruoComun monstruo) {
 
         this.campo.colocarMonstruo(monstruo);
         monstruo.colocarEnPosAtaque();
 
     }
 
-    public void colocarMosntruoEnPosDefensa(Monstruo monstruo) {
+    public void colocarMosntruoEnPosDefensa(MonstruoComun monstruo) {
 
         this.campo.colocarMonstruo(monstruo);
         monstruo.colocarEnPosDefensa();

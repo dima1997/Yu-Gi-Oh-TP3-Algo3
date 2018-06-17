@@ -1,14 +1,15 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Campo {
 
-    private final ArrayList<Monstruo> monstruos;
-    private final Cementerio cementerio;
+    private LinkedList<MonstruoComun> monstruos;
+    private Cementerio cementerio;
     private ArrayList<Magica> magicas;
 
     public Campo(Cementerio unCementerio){
         this.cementerio = unCementerio;
-        this.monstruos = new ArrayList<Monstruo>();
+        this.monstruos = new LinkedList<MonstruoComun>();
         this.magicas = new ArrayList<Magica>();
     }
 
@@ -16,7 +17,7 @@ public class Campo {
         return this.monstruos.contains(unaCarta) || this.magicas.contains(unaCarta);
     }
 
-    public void colocarMonstruo(Monstruo unMonstruo) {
+    public void colocarMonstruo(MonstruoComun unMonstruo) {
         this.monstruos.add(unMonstruo);
     }
 
@@ -52,15 +53,22 @@ public class Campo {
 
     public void aumentarAtaque(int aumento) {
         for (int i=0; i < this.monstruos.size(); i++){
-            Monstruo unMonstruo = this.monstruos.get(i);
+            MonstruoComun unMonstruo = this.monstruos.get(i);
             unMonstruo.aumentarAtaque(aumento);
         }
     }
 
     public void aumentarDefensa(int aumento) {
-        for (int i=0; i<this.monstruos.size(); i++){
-            Monstruo unMonstruo = this.monstruos.get(i);
+        for (int i=0; i<this.monstruos.size(); i++) {
+            MonstruoComun unMonstruo = this.monstruos.get(i);
             unMonstruo.aumentarDefensa(aumento);
         }
     }
+
+    LinkedList obtenerMonstruos(){
+
+        return (LinkedList) this.monstruos.clone();
+
+    }
+
 }

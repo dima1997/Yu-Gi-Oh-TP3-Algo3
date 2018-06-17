@@ -12,7 +12,7 @@ public class PosAtaque implements Posicion {
 
     }
 
-    public void matar(Monstruo enemigo, Botin b) {
+    public void matar(MonstruoComun enemigo, Botin b) {
 
         b.agregarMuerto(enemigo);
 

@@ -4,12 +4,12 @@ import java.util.LinkedList;
 class ArenaSingleton {
     private static ArenaSingleton INSTANCE = null;
 
-    private ArrayList<Monstruo> cartasMonstruo;
+    private ArrayList<MonstruoComun> cartasMonstruo;
     private ArrayList<Carta> cartasTrampaMagica;
     private ArrayList<Carta> cementerio;
 
      private ArenaSingleton(){
-        this.cartasMonstruo = new ArrayList<Monstruo>();
+        this.cartasMonstruo = new ArrayList<MonstruoComun>();
         this.cartasTrampaMagica = new ArrayList<Carta>();
         this.cementerio = new ArrayList<Carta>();
     }
@@ -53,7 +53,7 @@ class ArenaSingleton {
 
     }
 
-    void hacerCombatir(Jugador jugadorAtacante, Monstruo monstruoAtacante, Jugador jugadorDefensor, Monstruo monstruoDefensor) {
+    void hacerCombatir(Jugador jugadorAtacante, MonstruoComun monstruoAtacante, Jugador jugadorDefensor, MonstruoComun monstruoDefensor) {
         AreaDeCombate unCombate = new AreaDeCombate(jugadorAtacante, monstruoAtacante, jugadorDefensor, monstruoDefensor);
 
         unCombate.combatir();
@@ -87,13 +87,13 @@ class ArenaSingleton {
     void sacrificar(int numeroDeSacrificios) {
          int i = numeroDeSacrificios;
          while (i>0) {
-            Monstruo monstruoASacrificar = cartasMonstruo.remove(0);
+            MonstruoComun monstruoASacrificar = cartasMonstruo.remove(0);
             this.enviarAlCementerio(monstruoASacrificar);
             i--;
         }
     }
 
-    void colocarMonstruo(Monstruo unMonstruo) {
+    void colocarMonstruo(MonstruoComun unMonstruo) {
 
          unMonstruo.sacrificar();
          this.cartasMonstruo.add(unMonstruo);

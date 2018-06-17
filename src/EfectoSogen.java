@@ -11,4 +11,7 @@ public class EfectoSogen implements Efecto {
         this.campoPropio.aumentarDefensa(500);
         this.campoOponente.aumentarAtaque(200);
     */}
+
+    public void activarEn(MonstruoComun m){}
+
 }

@@ -16,7 +16,7 @@ public class CartaCampo implements Carta {
 
     }
 
-    public void activarEfectoEnMonstruo(Monstruo monstruo) {
+    public void activarEfectoEnMonstruo(MonstruoComun monstruo) {
 
         this.efecto.activarEn(monstruo);
 

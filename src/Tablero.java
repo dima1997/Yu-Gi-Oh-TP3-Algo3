@@ -19,7 +19,7 @@ public class Tablero {
 
     }
 
-    public void colocarMonstruoEnPosAtaque(Jugador jugador, Monstruo monstruo) {
+    public void colocarMonstruoEnPosAtaque(Jugador jugador, MonstruoComun monstruo) {
 
         jugador.colocarMosntruoEnPosAtaque(monstruo);
         for (CartaCampo carta: this.cartasDeCampo){
@@ -29,7 +29,7 @@ public class Tablero {
 
     }
 
-    public void colocarMonstruoEnPosDefensa(Jugador jugador, Monstruo monstruo) {
+    public void colocarMonstruoEnPosDefensa(Jugador jugador, MonstruoComun monstruo) {
 
         jugador.colocarMosntruoEnPosDefensa(monstruo);
         for (CartaCampo carta: this.cartasDeCampo){

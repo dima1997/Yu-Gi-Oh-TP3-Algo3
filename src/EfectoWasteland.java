@@ -12,7 +12,7 @@ public class EfectoWasteland implements Efecto {
         this.campoOponente.aumentarDefensa(300);
     }
 
-    public void activarEn(Monstruo monstruo) {
+    public void activarEn(MonstruoComun monstruo) {
 
         if (this.campoPropio.esta(monstruo)) {
 

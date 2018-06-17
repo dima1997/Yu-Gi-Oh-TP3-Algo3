@@ -12,7 +12,7 @@ public class PosDefensa implements Posicion {
 
     }
 
-    public void matar(Monstruo enemigo, Botin b) {
+    public void matar(MonstruoComun enemigo, Botin b) {
     }
 
     public void atacar() {
