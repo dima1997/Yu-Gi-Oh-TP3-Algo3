@@ -1,4 +1,4 @@
-public class PosDormido implements Posicion {
+public class PosDormido implements PosicionStrategy {
 
     public int obtenerPuntos(int danio, int defensa) {
 
@@ -15,7 +15,7 @@ public class PosDormido implements Posicion {
     public void matar(Monstruo enemigo, Botin b) {
     }
 
-    public void atacar() {
+    public Botin atacar(PosicionStrategy posicionAtacada, Monstruo atacante, Monstruo atacado) {
 
         throw new MonstruoNoSeEncuentraEnArenaDeJuegoError();
 

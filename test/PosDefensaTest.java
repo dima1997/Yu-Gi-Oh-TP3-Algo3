@@ -42,7 +42,7 @@ public class PosDefensaTest extends TestCase {
 
         try{
 
-            p.atacar();
+            /*p.atacar();*/
 
         }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e ){
 

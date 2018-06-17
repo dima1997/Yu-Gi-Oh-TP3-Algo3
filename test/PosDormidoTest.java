@@ -52,7 +52,7 @@ public class PosDormidoTest extends TestCase {
 
         try{
 
-            p.atacar();
+            /*p.atacar();*/
 
         }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e ){
 

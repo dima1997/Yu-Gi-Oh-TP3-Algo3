@@ -2,7 +2,7 @@ import java.util.Comparator;
 
 public class Monstruo implements Carta{
 
-    private Posicion posicion;
+    private PosicionStrategy posicion;
     private int danio;
     private int defensa;
     private int estrellas;
@@ -76,26 +76,9 @@ public class Monstruo implements Carta{
     }
 
     Botin atacar(Monstruo enemigo) {
-
-        this.posicion.atacar();
-        Botin botin = new Botin();
-
-        int dif = this.obtenerPuntos() - enemigo.obtenerPuntos();
-
-        if(dif >= 0){
-
-            this.matar(enemigo, botin);
-            botin.setDanioAtacado(enemigo.posicion.danioDePersonaje(dif));
-
-        }
-        if(dif <= 0){
-
-            enemigo.matar(this, botin);
-            botin.setDanioAtacante(this.posicion.danioDePersonaje(dif));
-
-        }
-
-        return botin;
+        PosicionStrategy posicionAtacante = this.posicion;
+        PosicionStrategy posicionAtacada = enemigo.posicion;
+        return posicionAtacante.atacar(posicionAtacada, this, enemigo);
 
     }
 

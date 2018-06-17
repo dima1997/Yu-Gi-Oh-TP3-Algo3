@@ -1,4 +1,4 @@
-public interface Posicion {
+public interface PosicionStrategy {
 
     int obtenerPuntos(int danio, int defensa);
 
@@ -6,5 +6,5 @@ public interface Posicion {
 
     void matar(Monstruo enemigo, Botin b);
 
-    void atacar();
+    Botin atacar(PosicionStrategy posicionAtacada, Monstruo atacante, Monstruo atacado);
 }
