@@ -35,22 +35,26 @@ public class PosDefensaTest extends TestCase {
 
     }
 
-    public void testPosAtaqueAtacarLanzaError(){
-
-        PosDefensa p = new PosDefensa();
+    public void testPosDefensaAtacarPosAtaqueAitsuContraAgujaAsesinaYSeLevantaUnaExcepcion(){
+        PosicionStrategy posicionAtacante = new PosDefensa();
+        PosicionStrategy posicioAtacada = new PosAtaque();
+        Monstruo aitsu = new Monstruo(100, 100, 5);
+        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        aitsu.colocarEnPosDefensa();
+        agujaAsesina.colocarEnPosAtaque();
         boolean lanzoError = false;
 
         try{
 
-            /*p.atacar();*/
+            posicionAtacante.atacar(posicioAtacada,aitsu,agujaAsesina);
 
-        }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e ){
+        }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e){
 
             lanzoError = true;
 
         }
 
         assertTrue(lanzoError);
-    }
 
+    }
 }

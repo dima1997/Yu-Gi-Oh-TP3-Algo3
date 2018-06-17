@@ -45,14 +45,14 @@ public class PosDormidoTest extends TestCase {
 
     }
 
-    public void testPosAtaqueAtacarNoLanzaError(){
-
-        PosDormido p = new PosDormido();
+    public void testPosDormidaAtacarLanzaError(){
+        PosicionStrategy posicionAtacante = new PosDormido();
+        PosicionStrategy posicionAtacada = new PosAtaque();
         boolean lanzoError = false;
 
         try{
 
-            /*p.atacar();*/
+            posicionAtacante.atacar(posicionAtacada, new Monstruo(1,1,1), new Monstruo(1,1,1));
 
         }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e ){
 

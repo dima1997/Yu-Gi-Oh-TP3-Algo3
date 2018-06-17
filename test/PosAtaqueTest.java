@@ -42,26 +42,6 @@ public class PosAtaqueTest extends TestCase {
         assertTrue(c.esta(m));
 
     }
-    /*
-    public void testPosAtaqueAtacarNoLanzaError(){
-
-        PosAtaque p = new PosAtaque();
-        boolean lanzoError = false;
-
-        try{
-
-            p.atacar();
-
-        }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e ){
-
-            lanzoError = true;
-
-        }
-
-        assertFalse(lanzoError);
-    }
-    */
-    //Pruebas de ataque
 
     public void testPosAtaqueAtacarPosAtaqueAitsuContraAgujaAsesinaYAitsuMuere(){
         PosAtaque posicionAtacante = new PosAtaque();
@@ -75,7 +55,7 @@ public class PosAtaqueTest extends TestCase {
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
-        Botin b = posicionAtacante.atacar(posicionAtacante, aitsu, agujaAsesina);
+        Botin b = posicionAtacante.atacar(posicionAtacada, aitsu, agujaAsesina);
         b.ejecutar(unCampo);
 
         assertTrue(c.esta(aitsu));
@@ -93,15 +73,15 @@ public class PosAtaqueTest extends TestCase {
         alasDeLlamaPerversa.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
-
-        Botin b = agujaAsesina.atacar(alasDeLlamaPerversa);
+        Botin b = posicionAtacante.atacar(posicionAtacada, agujaAsesina, alasDeLlamaPerversa);
         b.ejecutar(unCampo);
 
         assertTrue(c.esta(alasDeLlamaPerversa));
     }
-    /*
-    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnAtaqueYMuerenAmbos(){
 
+    public void testPosAtaqueAtacarPosAtaqueAgujaAsesinaContraAgresorOscuroYMuerenAmbos(){
+        PosAtaque posicionAtacante = new PosAtaque();
+        PosAtaque posicionAtacada = new PosAtaque();
         Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Cementerio c = new Cementerio();
@@ -111,15 +91,16 @@ public class PosAtaqueTest extends TestCase {
         agresorOscuro.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
-        Botin b = agujaAsesina.atacar(agresorOscuro);
+        Botin b = posicionAtacante.atacar(posicionAtacada, agujaAsesina, agresorOscuro);
         b.ejecutar(unCampo);
 
         assertTrue(c.esta(agresorOscuro));
         assertTrue(c.esta(agujaAsesina));
     }
 
-    public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnDefensaYNingunoMuere(){
-
+    public void testPosAtaqueAtacarPosDefensaAitsuContraAgujaAsesinaYNingunoMuere(){
+        PosicionStrategy posicionAtacante = new PosAtaque();
+        PosicionStrategy posicionAtacada = new PosDefensa();
         Monstruo aitsu = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Cementerio c = new Cementerio();
@@ -129,15 +110,16 @@ public class PosAtaqueTest extends TestCase {
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
 
-        Botin b = aitsu.atacar(agujaAsesina);
+        Botin b = posicionAtacante.atacar(posicionAtacada,aitsu,agujaAsesina);
         b.ejecutar(unCampo);
 
         assertFalse(c.esta(aitsu));
         assertFalse(c.esta(agujaAsesina));
     }
 
-    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYMuereAgresorOscuro(){
-
+    public void testPosAtaqueAtacarPosDefensaAgujaAsesinaContraAgresorOscuroYMuereAgresorOscuro(){
+        PosicionStrategy posicionAtacante = new PosAtaque();
+        PosicionStrategy posicionAtacada = new PosDefensa();
         Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Cementerio c = new Cementerio();
@@ -147,15 +129,16 @@ public class PosAtaqueTest extends TestCase {
         agresorOscuro.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
 
-        Botin b = agujaAsesina.atacar(agresorOscuro);
+        Botin b = posicionAtacante.atacar(posicionAtacada,agujaAsesina,agresorOscuro);
         b.ejecutar(unCampo);
 
         assertTrue(c.esta(agresorOscuro));
         assertFalse(c.esta(agujaAsesina));
     }
 
-    public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYElBotinNoQuitaVida(){
-
+    public void testPosAtaqueAtacarPosDefensaAgujaAsesinaContraAgresorOscuroYElBotinNoQuitaVida(){
+        PosicionStrategy posicionAtacante = new PosAtaque();
+        PosicionStrategy posicionAtacada = new PosDefensa();
         Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Jugador atacante = new Jugador("", 1000);
@@ -163,7 +146,7 @@ public class PosAtaqueTest extends TestCase {
         agresorOscuro.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
 
-        Botin b = agujaAsesina.atacar(agresorOscuro);
+        Botin b = posicionAtacante.atacar(posicionAtacada,agujaAsesina,agresorOscuro);
         b.infligirDanios(atacante, atacado);
 
         assertEquals(atacante.verVida(), 1000);
@@ -171,8 +154,9 @@ public class PosAtaqueTest extends TestCase {
 
     }
 
-    public void testPeleaAitsuAtacadoEnAtaqueContraAgujaAsesinaAtacanteEnAtaqueYElBotinQuita1100DeVidaAlAtacado(){
-
+    public void testPosAtaqueAtacarPosAtaqueAgujaAsesinaContraAitsuYElBotinQuita1100DeVidaAlAtacado(){
+        PosicionStrategy posicionAtacante = new PosAtaque();
+        PosicionStrategy posicionAtacada = new PosAtaque();
         Monstruo aitsu = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Jugador atacante = new Jugador("", 10000);
@@ -180,7 +164,7 @@ public class PosAtaqueTest extends TestCase {
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
-        Botin b = agujaAsesina.atacar(aitsu);
+        Botin b = posicionAtacante.atacar(posicionAtacada,agujaAsesina,aitsu);
         b.infligirDanios(atacante, atacado);
 
         assertEquals(atacante.verVida(), 10000);
@@ -188,8 +172,9 @@ public class PosAtaqueTest extends TestCase {
 
     }
 
-    public void testPeleaAitsuAtacanteEnAtaqueContraAgujaAsesinaAtacadoEnAtaqueYElBotinQuita1100DeVidaAlAtacante(){
-
+    public void testPosAtaqueAtacarPosAtaqueAitsuContraYElBotinQuita1100DeVidaAlAtacante(){
+        PosicionStrategy posicionAtacante = new PosAtaque();
+        PosicionStrategy posicionAtacada = new PosAtaque();
         Monstruo aitsu = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Jugador atacante = new Jugador("", 10000);
@@ -197,7 +182,7 @@ public class PosAtaqueTest extends TestCase {
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
 
-        Botin b = aitsu.atacar(agujaAsesina);
+        Botin b = posicionAtacante.atacar(posicionAtacada,aitsu,agujaAsesina);
         b.infligirDanios(atacante, atacado);
 
         assertEquals(atacante.verVida(), 10000 - 1100);
@@ -206,8 +191,9 @@ public class PosAtaqueTest extends TestCase {
     }
 
 
-    public void testPeleaAitsuEnDefensaContraAgujaAsesinaEnAtaqueYElBotinNoQuitaVida(){
-
+    public void testPosAtaqueAtacarPosDefensaAgujaAsesinaContraAitsuYElBotinNoQuitaVida(){
+        PosicionStrategy posicionAtacante = new PosAtaque();
+        PosicionStrategy posicionAtacada = new PosDefensa();
         Monstruo aitsu = new Monstruo(100, 100, 5);
         Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
         Jugador atacante = new Jugador("", 10000);
@@ -215,7 +201,7 @@ public class PosAtaqueTest extends TestCase {
         aitsu.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
 
-        Botin b = agujaAsesina.atacar(aitsu);
+        Botin b = posicionAtacante.atacar(posicionAtacada,agujaAsesina,aitsu);
         b.infligirDanios(atacante, atacado);
 
         assertEquals(atacante.verVida(), 10000);
@@ -223,49 +209,4 @@ public class PosAtaqueTest extends TestCase {
 
     }
 
-    public void testAitsuEnPosDefensaIntentaAtacarAAgujaAsesinaYSeLevantaUnaExcepcion(){
-
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
-        aitsu.colocarEnPosDefensa();
-
-        boolean lanzoError = false;
-
-        try{
-
-            aitsu.atacar(agujaAsesina);
-
-        }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e){
-
-            lanzoError = true;
-
-        }
-
-        assertTrue(lanzoError);
-
-    }
-
-    public void testAitsuEnPosAtaqueIntentaAtacarAAgujaAsesinaYNoSeLevantaUnaExcepcion(){
-
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
-        aitsu.colocarEnPosAtaque();
-        agujaAsesina.colocarEnPosDefensa();
-
-        boolean lanzoError = false;
-
-        try{
-
-            aitsu.atacar(agujaAsesina);
-
-        }catch(MonstruoNoSeEncuentraEnArenaDeJuegoError e){
-
-            lanzoError = true;
-
-        }
-
-        assertFalse(lanzoError);
-
-    }
-    */
 }
