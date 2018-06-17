@@ -4,8 +4,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYAitsuMuere(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun aitsu = new MonstruoComun(100, 100, 5);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         Cementerio c = new Cementerio();
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
@@ -18,8 +18,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAlasDeLaLlamaPerversaEnAtaqueYAlasDeLaLlamaPerversaMuere(){
 
-        Monstruo alasDeLlamaPerversa = new Monstruo(700, 600, 2);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun alasDeLlamaPerversa = new MonstruoComun(700, 600, 2);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         Cementerio c = new Cementerio();
         alasDeLlamaPerversa.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
@@ -32,8 +32,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnAtaqueYMuerenAmbos(){
 
-        Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun agresorOscuro = new MonstruoComun(1200, 1200, 4);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         Cementerio c = new Cementerio();
         agresorOscuro.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosAtaque();
@@ -47,8 +47,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnDefensaYNingunoMuere(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun aitsu = new MonstruoComun(100, 100, 5);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         Cementerio c = new Cementerio();
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
@@ -62,8 +62,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYMuereAgresorOscuro(){
 
-        Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun agresorOscuro = new MonstruoComun(1200, 1200, 4);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         Cementerio c = new Cementerio();
         agresorOscuro.colocarEnPosDefensa();
         agujaAsesina.colocarEnPosAtaque();
@@ -77,8 +77,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAgujaAsesinaEnAtaqueContraAgresorOscuroEnDefensaYElBotinNoQuitaVida(){
 
-        Monstruo agresorOscuro = new Monstruo(1200, 1200, 4);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun agresorOscuro = new MonstruoComun(1200, 1200, 4);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         Jugador atacante = new Jugador("", 1000);
         Jugador atacado = new Jugador("", 1000);
         agresorOscuro.colocarEnPosDefensa();
@@ -94,8 +94,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAitsuEnAtaqueContraAgujaAsesinaEnAtaqueYElBotinQuita1100DeVidaAlAtacado(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun aitsu = new MonstruoComun(100, 100, 5);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         Jugador atacante = new Jugador("", 10000);
         Jugador atacado = new Jugador("", 10000);
         aitsu.colocarEnPosAtaque();
@@ -111,8 +111,8 @@ public class MonstruoTest extends TestCase {
 
     public void testPeleaAitsuEnDefensaContraAgujaAsesinaEnAtaqueYElBotinNoQuitaVida(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun aitsu = new MonstruoComun(100, 100, 5);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         Jugador atacante = new Jugador("", 10000);
         Jugador atacado = new Jugador("", 10000);
         aitsu.colocarEnPosDefensa();
@@ -128,8 +128,8 @@ public class MonstruoTest extends TestCase {
 
     public void testAitsuEnPosDefensaIntentaAtacarAAgujaAsesinaYSeLevantaUnaExcepcion(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun aitsu = new MonstruoComun(100, 100, 5);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         aitsu.colocarEnPosDefensa();
 
         boolean lanzoError = false;
@@ -150,8 +150,8 @@ public class MonstruoTest extends TestCase {
 
     public void testAitsuEnPosAtaqueIntentaAtacarAAgujaAsesinaYNoSeLevantaUnaExcepcion(){
 
-        Monstruo aitsu = new Monstruo(100, 100, 5);
-        Monstruo agujaAsesina = new Monstruo(1200, 1000, 4);
+        MonstruoComun aitsu = new MonstruoComun(100, 100, 5);
+        MonstruoComun agujaAsesina = new MonstruoComun(1200, 1000, 4);
         aitsu.colocarEnPosAtaque();
         agujaAsesina.colocarEnPosDefensa();
 
@@ -171,9 +171,29 @@ public class MonstruoTest extends TestCase {
 
     }
 
+    public void testInsectoComeHombresDestruyeUnMonstruoEnElCampoAlPosicionarloBocaArriba(){
+
+        Cementerio cementerioOponente = new Cementerio();
+
+        Campo campoOponente = new Campo(cementerioOponente);
+
+        Efecto destruirMonstruo = new EfectoDestruirMonstruo(campoOponente);
+        MonstruoComun insecto = new MonstruoComun(2,2,2, destruirMonstruo);
+        Monstruo insectoComeHombres = new EfectoAlColocarBocaArriba(insecto);
+        MonstruoComun mOponente = new MonstruoComun(2,2,2);
+
+        campoOponente.colocarMonstruo(mOponente);
+        mOponente.colocarEnPosAtaque();
+        insectoComeHombres.colocarEnPosAtaque();
+
+        assertTrue(cementerioOponente.esta(mOponente));
+
+
+    }
+
 /*    public void testMonstruoDormidoDanioContraOtroMonstruoEnPosAtaqueLevantaError(){
-        Monstruo m1 = new Monstruo(1,1,1);
-        Monstruo m2 = new Monstruo(1,1,1);
+        MonstruoComun m1 = new MonstruoComun(1,1,1);
+        MonstruoComun m2 = new MonstruoComun(1,1,1);
 
         m2.colocarEnPosAtaque();
 
@@ -192,8 +212,8 @@ public class MonstruoTest extends TestCase {
         assertTrue(lanzoError);
     }
     public void testMonstruoEnPosAtaqueDanioContraOtroMonstruoDormidaLevantaError(){
-        Monstruo m1 = new Monstruo(1,1,1);
-        Monstruo m2 = new Monstruo(1,1,1);
+        MonstruoComun m1 = new MonstruoComun(1,1,1);
+        MonstruoComun m2 = new MonstruoComun(1,1,1);
 
         m1.colocarEnPosAtaque();
 
@@ -214,8 +234,8 @@ public class MonstruoTest extends TestCase {
 
     public void testMonstruoDeDanio10DanioContraMonstruoDeDanio20EnPosAtaqueDevuelve0(){
 
-        Monstruo m1 = new Monstruo(10,1,1);
-        Monstruo m2 = new Monstruo(20,1,1);
+        MonstruoComun m1 = new MonstruoComun(10,1,1);
+        MonstruoComun m2 = new MonstruoComun(20,1,1);
         m1.colocarEnPosAtaque();
         m2.colocarEnPosAtaque();
 
@@ -226,8 +246,8 @@ public class MonstruoTest extends TestCase {
     public void testMonstruoEnPosAtaqueDanioContraOtroMonstruoEnPosAtaqueConMenorAtaqueDevuelveLaDiferenciaDeAtaques(){
         int ataqueGrande = 20;
         int ataqueChico = 10;
-        Monstruo m1 = new Monstruo(ataqueGrande,1,1);
-        Monstruo m2 = new Monstruo(ataqueChico,1,1);
+        MonstruoComun m1 = new MonstruoComun(ataqueGrande,1,1);
+        MonstruoComun m2 = new MonstruoComun(ataqueChico,1,1);
 
         m1.colocarEnPosAtaque();
         m2.colocarEnPosAtaque();
@@ -241,8 +261,8 @@ public class MonstruoTest extends TestCase {
     public void testMonstruoEnPosAtaqueDanioContraOtroMonstruoEnPosAtaqueConIgualAtaqueDevuelveCero(){
         int mismoAtaque = 10;
 
-        Monstruo m1 = new Monstruo(mismoAtaque,1,1);
-        Monstruo m2 = new Monstruo(mismoAtaque,1,1);
+        MonstruoComun m1 = new MonstruoComun(mismoAtaque,1,1);
+        MonstruoComun m2 = new MonstruoComun(mismoAtaque,1,1);
 
         m1.colocarEnPosAtaque();
         m2.colocarEnPosAtaque();
@@ -253,8 +273,8 @@ public class MonstruoTest extends TestCase {
 
     public void testMonstruoEnPosAtaqueDanioContraOtroMonstruoEnPosDefensaConMenorDefensaQueSuAtaqueDevuelveCero(){
 
-        Monstruo m1 = new Monstruo(10,1,1);
-        Monstruo m2 = new Monstruo(10,1,1);
+        MonstruoComun m1 = new MonstruoComun(10,1,1);
+        MonstruoComun m2 = new MonstruoComun(10,1,1);
 
         m1.colocarEnPosAtaque();
         m2.colocarEnPosDefensa();
@@ -265,8 +285,8 @@ public class MonstruoTest extends TestCase {
 
     public void testMonstruoEnPosAtaqueDanioContraOtroMonstruoEnPosDefensaConMayorDefensaQueSuAtaqueDevuelveCero(){
 
-        Monstruo m1 = new Monstruo(10,1,1);
-        Monstruo m2 = new Monstruo(10,20,1);
+        MonstruoComun m1 = new MonstruoComun(10,1,1);
+        MonstruoComun m2 = new MonstruoComun(10,20,1);
 
         m1.colocarEnPosAtaque();
         m2.colocarEnPosDefensa();
@@ -277,8 +297,8 @@ public class MonstruoTest extends TestCase {
 
     public void testMonstruoEnPosAtaqueDanioContraOtroMonstruoEnPosDefensaConMismaDefensaQueSuAtaqueDevuelveCero(){
 
-        Monstruo m1 = new Monstruo(10,1,1);
-        Monstruo m2 = new Monstruo(1,10,1);
+        MonstruoComun m1 = new MonstruoComun(10,1,1);
+        MonstruoComun m2 = new MonstruoComun(1,10,1);
 
         m1.colocarEnPosAtaque();
         m2.colocarEnPosDefensa();
@@ -290,8 +310,8 @@ public class MonstruoTest extends TestCase {
     public void testMonstruoEnPosAtaqueEsDestruidoPorOtroMonstruoPosAtaqueConMayorAtaqueEsTrue(){
         int ataqueGrande = 20;
         int ataqueChico = 10;
-        Monstruo m1 = new Monstruo(ataqueChico,1,1);
-        Monstruo m2 = new Monstruo(ataqueGrande,1,1);
+        MonstruoComun m1 = new MonstruoComun(ataqueChico,1,1);
+        MonstruoComun m2 = new MonstruoComun(ataqueGrande,1,1);
 
         m1.colocarEnPosAtaque();
         m2.colocarEnPosAtaque();
@@ -301,8 +321,8 @@ public class MonstruoTest extends TestCase {
 
     public void testMonstruoEnPosAtaqueEsDestruidoPorOtroMonstruoPosAtaqueConMismoAtaqueEsTrue(){
         int mismoAtaque = 10;
-        Monstruo m1 = new Monstruo(mismoAtaque,1,1);
-        Monstruo m2 = new Monstruo(mismoAtaque,1,1);
+        MonstruoComun m1 = new MonstruoComun(mismoAtaque,1,1);
+        MonstruoComun m2 = new MonstruoComun(mismoAtaque,1,1);
 
         m1.colocarEnPosAtaque();
         m2.colocarEnPosAtaque();
@@ -314,8 +334,8 @@ public class MonstruoTest extends TestCase {
         int ataqueGrande = 20;
         int ataqueChico = 10;
 
-        Monstruo m1 = new Monstruo(ataqueGrande,1,1);
-        Monstruo m2 = new Monstruo(ataqueChico,1,1);
+        MonstruoComun m1 = new MonstruoComun(ataqueGrande,1,1);
+        MonstruoComun m2 = new MonstruoComun(ataqueChico,1,1);
 
         m1.colocarEnPosAtaque();
         m2.colocarEnPosAtaque();
@@ -323,8 +343,8 @@ public class MonstruoTest extends TestCase {
         assertFalse(m1.esDestruidoPor(m2));
     }
     public void testMonstruoEnPosDefensaEsDestruidoPorOtroMonstruoPosAtaqueConMayorAtaqueQueMiDefensaEsTrue(){
-        Monstruo m1 = new Monstruo(1,10,1);
-        Monstruo m2 = new Monstruo(20,1,1);
+        MonstruoComun m1 = new MonstruoComun(1,10,1);
+        MonstruoComun m2 = new MonstruoComun(20,1,1);
 
         m1.colocarEnPosDefensa();
         m2.colocarEnPosAtaque();
@@ -333,8 +353,8 @@ public class MonstruoTest extends TestCase {
     }
 
     public void testMonstruoEnPosDefensaEsDestruidoPorOtroMonstruoPosAtaqueConIgualAtaqueQueMiDefensaEsTrue(){
-        Monstruo m1 = new Monstruo(1,10,1);
-        Monstruo m2 = new Monstruo(10,1,1);
+        MonstruoComun m1 = new MonstruoComun(1,10,1);
+        MonstruoComun m2 = new MonstruoComun(10,1,1);
 
         m1.colocarEnPosDefensa();
         m2.colocarEnPosAtaque();
@@ -343,8 +363,8 @@ public class MonstruoTest extends TestCase {
     }
 
     public void testMonstruoEnPosDefensaEsDestruidoPorOtroMonstruoPosAtaqueConMenorAtaqueQueMiDefensaEsFalse(){
-        Monstruo m1 = new Monstruo(1,20,1);
-        Monstruo m2 = new Monstruo(10,1,1);
+        MonstruoComun m1 = new MonstruoComun(1,20,1);
+        MonstruoComun m2 = new MonstruoComun(10,1,1);
 
         m1.colocarEnPosDefensa();
         m2.colocarEnPosAtaque();

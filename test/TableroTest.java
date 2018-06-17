@@ -12,8 +12,8 @@ public class TableroTest extends TestCase {
         Campo campoPropio = jugadorPropio.obtenerCampo();
         Campo campoOponente = jugadorOponente.obtenerCampo();
 
-        Monstruo mPropio = new Monstruo(400,100,3);
-        Monstruo mOponenete = new Monstruo(10,100,3);
+        MonstruoComun mPropio = new MonstruoComun(400,100,3);
+        MonstruoComun mOponenete = new MonstruoComun(10,100,3);
         EfectoWasteland wasteland = new EfectoWasteland(campoPropio, campoOponente);
         CartaCampo cartaWasteland = new CartaCampo(wasteland);
 
@@ -25,4 +25,6 @@ public class TableroTest extends TestCase {
         assertEquals(mOponenete.obtenerPuntos(), 400);
     }
 
+
 }
+
